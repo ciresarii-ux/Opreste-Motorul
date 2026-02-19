@@ -8,8 +8,8 @@
 <style>
 body{
 margin:0;
-font-family: Arial, sans-serif;
-background:#F3FAF4;
+font-family:Arial, sans-serif;
+background:#6DBE45; /* iarba */
 color:#1F3D2B;
 text-align:center;
 }
@@ -39,56 +39,82 @@ margin:auto;
 }
 
 #game{
-background:white;
+background:#F3FAF4;
 padding:40px;
 border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
 #road-container{
 position:relative;
-height:300px;
+height:350px;
 margin-top:40px;
 }
 
+/* Drumuri */
 .road{
 position:absolute;
-width:45%;
-height:250px;
-background:#444;
+width:40%;
+height:300px;
+background:#3B3B3B;
 border-radius:20px;
 top:20px;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-font-size:20px;
-font-weight:bold;
 cursor:pointer;
 transition:0.3s;
 }
 
 .road:hover{
-background:#E63E7B;
+background:#4A4A4A;
+}
+
+/* Marcaje rutiere */
+.road::before{
+content:"";
+position:absolute;
+left:50%;
+top:10px;
+transform:translateX(-50%);
+width:6px;
+height:90%;
+background:repeating-linear-gradient(
+to bottom,
+white 0px,
+white 20px,
+transparent 20px,
+transparent 40px
+);
 }
 
 #road-left{
-left:0;
+left:5%;
 }
 
 #road-right{
-right:0;
+right:5%;
 }
 
-#cyclist{
+/* Text pe drum */
+.road span{
 position:absolute;
-top:120px;
+bottom:20px;
 left:50%;
 transform:translateX(-50%);
-font-size:40px;
+color:white;
+font-size:20px;
+font-weight:bold;
+}
+
+/* Biciclist */
+#cyclist{
+position:absolute;
+top:140px;
+left:50%;
+transform:translateX(-50%);
+font-size:45px;
 transition:all 0.6s ease;
 }
 
+/* Butoane */
 button{
 padding:12px 25px;
 background:#E63E7B;
@@ -107,11 +133,17 @@ background:#C92D66;
 display:none;
 }
 
+#result{
+margin-top:20px;
+font-weight:bold;
+font-size:18px;
+}
+
 #explanations{
 text-align:left;
 margin-top:30px;
 display:none;
-background:#F3FAF4;
+background:white;
 padding:20px;
 border-radius:15px;
 }
@@ -126,9 +158,9 @@ border-radius:15px;
 </header>
 
 <nav>
-<a href="#advocacy">Advocacy</a>
-<a href="#educatie">Educație</a>
-<a href="#despre">Despre noi</a>
+<a href="#">Advocacy</a>
+<a href="#">Educație</a>
+<a href="#">Despre noi</a>
 </nav>
 
 <section>
@@ -142,14 +174,14 @@ border-radius:15px;
 <div id="road-container">
 
 <div id="road-left" class="road" onclick="answer(false)">
-FALS
+<span>FALS</span>
 </div>
 
 <div id="road-right" class="road" onclick="answer(true)">
-ADEVĂRAT
+<span>ADEVĂRAT</span>
 </div>
 
-<div id="cyclist">🚴‍♂️</div>
+<div id="cyclist">🚴‍♀️</div>
 
 </div>
 
