@@ -70,7 +70,7 @@ nav a:hover{
 color:#E63E7B;
 }
 
-/* ================= SECTIONS ================= */
+/* ================= SECTION ================= */
 
 section{
 padding:80px 20px;
@@ -78,7 +78,7 @@ max-width:1100px;
 margin:auto;
 }
 
-/* ================= GAME LAYOUT ================= */
+/* ================= GAME ================= */
 
 .game-layout{
 display:flex;
@@ -100,8 +100,6 @@ h2{
 font-size:28px;
 margin-bottom:30px;
 }
-
-/* ================= GAME ================= */
 
 #game{
 background:white;
@@ -129,12 +127,6 @@ transition:0.25s ease;
 box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 
-.side h3{
-margin:0;
-font-size:15px;
-font-weight:600;
-}
-
 .side:hover{
 background:#E63E7B;
 color:white;
@@ -145,12 +137,6 @@ transform:translateY(-3px);
 #cyclist{
 font-size:55px;
 transition:transform 0.5s ease;
-}
-
-#result{
-margin-top:20px;
-font-weight:bold;
-font-size:16px;
 }
 
 button{
@@ -174,28 +160,56 @@ display:none;
 }
 
 #explanations{
-margin-top:30px;
-text-align:left;
-background:white;
-padding:25px;
-border-radius:15px;
+margin-top:20px;
 display:none;
 }
 
-/* ================= CARDS ================= */
+/* ================= WORKSHOP ================= */
 
-.card{
-background:white;
-padding:30px;
-margin:20px 0;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
+.atelier-container{
+display:flex;
+gap:80px;
+margin-top:60px;
 }
 
-iframe{
-max-width:100%;
+.atelier-col-left,
+.atelier-col-right{
+flex:1;
+}
+
+.atelier-title{
+color:#3E5EB9;
+font-size:40px;
+margin-bottom:0;
+}
+
+.atelier-sub{
+color:#E67E22;
+font-size:34px;
+margin-top:5px;
+}
+
+.atelier-questions{
+color:#3E5EB9;
+font-size:22px;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.atelier-text{
+color:#3E5EB9;
+font-size:18px;
+line-height:1.6;
+margin:30px 0;
+}
+
+.atelier-img{
+width:100%;
+max-height:400px;
+object-fit:cover;
 border-radius:15px;
-margin-top:20px;
+margin:20px 0;
+box-shadow:0 8px 25px rgba(0,0,0,0.1);
 }
 
 /* ================= FOOTER ================= */
@@ -205,13 +219,12 @@ background:#2F8F3A;
 color:white;
 padding:60px 20px;
 text-align:center;
-margin-top:60px;
+margin-top:80px;
 }
 
 .partners{
 display:flex;
 justify-content:center;
-align-items:center;
 gap:40px;
 flex-wrap:wrap;
 margin-top:20px;
@@ -232,11 +245,10 @@ box-shadow:0 4px 12px rgba(0,0,0,0.15);
 
 .game-layout{
 flex-direction:column;
-text-align:center;
 }
 
-.game-logo img{
-height:150px;
+.atelier-container{
+flex-direction:column;
 }
 
 .logo-ciresarii{
@@ -260,9 +272,7 @@ margin-bottom:20px;
 </header>
 
 <nav>
-<a href="#advocacy">Advocacy</a>
-<a href="#educatie">Educație</a>
-<a href="#despre">Despre noi</a>
+<a href="#educatie">Atelier</a>
 </nav>
 
 <section>
@@ -278,19 +288,12 @@ margin-bottom:20px;
 <h2>Cât de multe știi despre poluarea aerului?</h2>
 
 <div id="game">
-
 <p id="question"></p>
 
 <div id="road">
-<div class="side" onclick="answer(false)">
-<h3>Fals</h3>
-</div>
-
+<div class="side" onclick="answer(false)">Fals</div>
 <div id="cyclist">🚴</div>
-
-<div class="side" onclick="answer(true)">
-<h3>Adevărat</h3>
-</div>
+<div class="side" onclick="answer(true)">Adevărat</div>
 </div>
 
 <p id="result"></p>
@@ -299,58 +302,60 @@ margin-bottom:20px;
 <button id="verify" class="hidden" onclick="showAnswers()">Verifică răspunsurile</button>
 
 <div id="explanations"></div>
-
 </div>
 
 </div>
-
-</div>
-
-</section>
-
-<section id="advocacy">
-<h2>Advocacy</h2>
-
-<div class="card">
-<h3>Inițiative</h3>
-<p>Aici pot fi publicate articole despre inițiativele campaniei.</p>
-
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-allowfullscreen>
-</iframe>
-</div>
-
-<div class="card">
-<h3>Materiale</h3>
-<p>Materialele pot fi încărcate în repository și oferite gratuit pentru descărcare.</p>
-<a href="ghid-opreste-motorul.pdf" download>
-<button>Descarcă material</button>
-</a>
 </div>
 
 </section>
 
 <section id="educatie">
-<h2>Educație</h2>
 
-<div class="card">
-<h3>Solicită atelier de mediu</h3>
-<p>Atelier interactiv despre impactul poluării aerului și soluții concrete pentru reducerea emisiilor.</p>
+<div class="atelier-container">
 
-<a href="mailto:home@parintideciresari.ro">
-<button>Solicită</button>
-</a>
-</div>
-</section>
+<div class="atelier-col-left">
 
-<section id="despre">
-<h2>Despre Noi</h2>
+<h1 class="atelier-title">OPREȘTE MOTORUL</h1>
+<h2 class="atelier-sub">workshop</h2>
 
-<div class="card">
-<p>
-Asociația Părinți de Cireșari, înființată în iulie 2020, are ca misiune sprijinirea comunității locale prin proiecte dedicate educației, sănătății și protecției mediului.
+<p class="atelier-text">
+URMĂRIM UN MATERIAL VIDEO DESPRE DEZVOLTAREA URBANĂ ÎN ARMONIE CU NATURA.
+DISCUTĂM DESPRE SUBIECTUL MATERIALULUI. 15 MIN.
 </p>
+
+<img src="workshop1.jpg" class="atelier-img">
+<img src="workshop3.jpg" class="atelier-img">
+
+</div>
+
+<div class="atelier-col-right">
+
+<div class="atelier-questions">
+CE ESTE POLUAREA?<br>
+CUM AFECTEAZĂ MEDIUL?<br>
+CUM NE POATE AFECTA SĂNĂTATEA?
+</div>
+
+<p class="atelier-text">
+DESCOPERIM SURSELE DE POLUARE DIN ORAȘUL NOSTRU
+PRINTR-UN JOC INTERACTIV DE ASOCIERE.
+</p>
+
+<img src="workshop2.jpg" class="atelier-img">
+<img src="workshop4.jpg" class="atelier-img">
+
+<p class="atelier-text">
+POVESTIM DESPRE IMPLICARE CIVICĂ ȘI DESPRE CE PUTEM FACE NOI CA CETĂȚENI
+PENTRU ÎMBUNĂTĂȚIREA CALITĂȚII AERULUI.
+COPIII FORMULEAZĂ PRIMA LOR PETIȚIE CĂTRE PRIMARUL LOR.
+</p>
+
+<a href="mailto:home@parintideciresari.ro?subject=Solicitare atelier Opreste Motorul&body=Buna ziua,%0D%0A%0D%0AAs dori sa solicit organizarea atelierului Opreste Motorul pentru scoala noastra.%0D%0A%0D%0AMultumesc.">
+<button>Solicită atelier</button>
+</a>
+
+</div>
+
 </div>
 
 </section>
@@ -373,16 +378,10 @@ Asociația Părinți de Cireșari, înființată în iulie 2020, are ca misiune 
 
 <script>
 const questions=[
-{q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.",a:true,e:"Este considerată principalul risc de mediu pentru sănătate."},
-{q:"Persoanele în vârstă sunt cele mai afectate de poluarea aerului.",a:true,e:"Vârstnicii și copiii sunt cei mai vulnerabili."},
-{q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",a:false,e:"Sunt printre cele mai ridicate din Europa."},
-{q:"Poluarea aerului contribuie la 7% din totalul deceselor în România.",a:true,e:"Aproximativ 7% din decese sunt asociate poluării."},
-{q:"În București se pierd aproape 2 ani de viață din cauza poluării.",a:true,e:"Studiile arată o pierdere medie de aproape 2 ani."},
-{q:"România ocupă locul 8 în Europa la decese cauzate de poluare.",a:true,e:"Conform statisticilor europene."},
-{q:"În interiorul unei mașini este mai multă poluare decât în exterior.",a:true,e:"Poluanții rămân concentrați în habitaclu."},
-{q:"Particulele mai mari sunt cele mai periculoase.",a:false,e:"PM2.5 sunt cele mai periculoase deoarece pătrund în plămâni."},
-{q:"Cărțile sunt o sursă de poluare a aerului.",a:false,e:"Principalele surse sunt traficul și arderea combustibililor."},
-{q:"Nivelul poluării poate fi urmărit online în România.",a:true,e:"Există platforme de monitorizare în timp real."}
+{q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.",a:true},
+{q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",a:false},
+{q:"Poluarea aerului contribuie la 7% din totalul deceselor în România.",a:true},
+{q:"Particulele mai mari sunt cele mai periculoase.",a:false}
 ];
 
 let current=0;
@@ -418,7 +417,6 @@ loadQuestion();
 }else{
 document.getElementById("question").innerText="Game Over! Scor: "+score+"/"+questions.length;
 document.getElementById("replay").classList.remove("hidden");
-document.getElementById("verify").classList.remove("hidden");
 }
 },600);
 }
@@ -427,18 +425,7 @@ function restart(){
 current=0;
 score=0;
 document.getElementById("replay").classList.add("hidden");
-document.getElementById("verify").classList.add("hidden");
-document.getElementById("explanations").style.display="none";
 loadQuestion();
-}
-
-function showAnswers(){
-let container=document.getElementById("explanations");
-container.innerHTML="<h3>Răspunsuri corecte și explicații:</h3>";
-questions.forEach((item,index)=>{
-container.innerHTML+="<p><strong>"+(index+1)+".</strong> "+item.e+"</p>";
-});
-container.style.display="block";
 }
 
 loadQuestion();
