@@ -162,6 +162,11 @@ display:none;
 #explanations{
 margin-top:20px;
 display:none;
+text-align:left;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
 /* ================= WORKSHOP ================= */
@@ -169,7 +174,7 @@ display:none;
 .atelier-container{
 display:flex;
 gap:80px;
-margin-top:60px;
+margin-top:40px;
 }
 
 .atelier-col-left,
@@ -179,28 +184,28 @@ flex:1;
 
 .atelier-title{
 color:#3E5EB9;
-font-size:40px;
+font-size:36px;
 margin-bottom:0;
 }
 
 .atelier-sub{
 color:#E67E22;
-font-size:34px;
+font-size:30px;
 margin-top:5px;
 }
 
 .atelier-questions{
 color:#3E5EB9;
-font-size:22px;
+font-size:20px;
 line-height:1.8;
 margin-bottom:30px;
 }
 
 .atelier-text{
 color:#3E5EB9;
-font-size:18px;
+font-size:17px;
 line-height:1.6;
-margin:30px 0;
+margin:20px 0;
 }
 
 .atelier-img{
@@ -210,6 +215,17 @@ object-fit:cover;
 border-radius:15px;
 margin:20px 0;
 box-shadow:0 8px 25px rgba(0,0,0,0.1);
+}
+
+.email-link{
+color:#E63E7B;
+font-weight:bold;
+text-decoration:none;
+font-size:18px;
+}
+
+.email-link:hover{
+text-decoration:underline;
 }
 
 /* ================= FOOTER ================= */
@@ -261,7 +277,7 @@ margin-bottom:20px;
 
 <body>
 
-<header>
+<header id="home">
 <div class="header-container">
 <img src="logo-ciresarii.png" class="logo-ciresarii">
 <div>
@@ -272,11 +288,13 @@ margin-bottom:20px;
 </header>
 
 <nav>
-<a href="#educatie">Atelier</a>
+<a href="#home">Acasă</a>
+<a href="#advocacy">Advocacy</a>
+<a href="#educatie">Educație</a>
+<a href="#despre">Despre noi</a>
 </nav>
 
 <section>
-
 <div class="game-layout">
 
 <div class="game-logo">
@@ -306,10 +324,15 @@ margin-bottom:20px;
 
 </div>
 </div>
+</section>
 
+<section id="advocacy">
+<h2>Advocacy</h2>
+<p>Aici pot fi prezentate inițiativele campaniei, parteneriate și materiale video.</p>
 </section>
 
 <section id="educatie">
+<h2>Atelier educațional</h2>
 
 <div class="atelier-container">
 
@@ -319,8 +342,7 @@ margin-bottom:20px;
 <h2 class="atelier-sub">workshop</h2>
 
 <p class="atelier-text">
-URMĂRIM UN MATERIAL VIDEO DESPRE DEZVOLTAREA URBANĂ ÎN ARMONIE CU NATURA.
-DISCUTĂM DESPRE SUBIECTUL MATERIALULUI. 15 MIN.
+Urmărim un material video despre dezvoltarea urbană în armonie cu natura și discutăm despre impactul asupra comunității.
 </p>
 
 <img src="workshop1.jpg" class="atelier-img">
@@ -336,32 +358,31 @@ CUM AFECTEAZĂ MEDIUL?<br>
 CUM NE POATE AFECTA SĂNĂTATEA?
 </div>
 
-<p class="atelier-text">
-DESCOPERIM SURSELE DE POLUARE DIN ORAȘUL NOSTRU
-PRINTR-UN JOC INTERACTIV DE ASOCIERE.
-</p>
-
 <img src="workshop2.jpg" class="atelier-img">
 <img src="workshop4.jpeg" class="atelier-img">
 
 <p class="atelier-text">
-POVESTIM DESPRE IMPLICARE CIVICĂ ȘI DESPRE CE PUTEM FACE NOI CA CETĂȚENI
-PENTRU ÎMBUNĂTĂȚIREA CALITĂȚII AERULUI.
-COPIII FORMULEAZĂ PRIMA LOR PETIȚIE CĂTRE PRIMARUL LOR.
+Pentru programări și informații suplimentare ne puteți scrie la:
+<br><br>
+<a href="mailto:home@parintideciresari.ro" class="email-link">
+home@parintideciresari.ro
+</a>
 </p>
 
-<a href="mailto:home@parintideciresari.ro?subject=Solicitare atelier Opreste Motorul&body=Buna ziua,%0D%0A%0D%0AAs dori sa solicit organizarea atelierului Opreste Motorul pentru scoala noastra.%0D%0A%0D%0AMultumesc.">
-<button>Solicită atelier</button>
-</a>
-
 </div>
 
 </div>
+</section>
 
+<section id="despre">
+<h2>Despre noi</h2>
+<p>
+Asociația Părinți de Cireșari sprijină comunitatea prin proiecte dedicate educației,
+sănătății și protecției mediului.
+</p>
 </section>
 
 <footer>
-
 <h3>Instituții partenere</h3>
 <div class="partners">
 <img src="logo-ps1.png">
@@ -373,19 +394,25 @@ COPIII FORMULEAZĂ PRIMA LOR PETIȚIE CĂTRE PRIMARUL LOR.
 <img src="logo-ecopolis.png">
 <img src="logo-platformademediu.png">
 </div>
-
 </footer>
 
 <script>
 const questions=[
-{q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.",a:true},
-{q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",a:false},
-{q:"Poluarea aerului contribuie la 7% din totalul deceselor în România.",a:true},
-{q:"Particulele mai mari sunt cele mai periculoase.",a:false}
+{q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.",a:true,e:"Este considerată principalul risc de mediu pentru sănătate."},
+{q:"Persoanele în vârstă sunt cele mai afectate de poluarea aerului.",a:true,e:"Vârstnicii și copiii sunt cei mai vulnerabili."},
+{q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",a:false,e:"Sunt printre cele mai ridicate din Europa."},
+{q:"Poluarea aerului contribuie la 7% din totalul deceselor în România.",a:true,e:"Aproximativ 7% din decese sunt asociate poluării."},
+{q:"În București se pierd aproape 2 ani de viață din cauza poluării.",a:true,e:"Studiile arată o pierdere medie de aproape 2 ani."},
+{q:"România ocupă locul 8 în Europa la decese cauzate de poluare.",a:true,e:"Conform statisticilor europene."},
+{q:"În interiorul unei mașini este mai multă poluare decât în exterior.",a:true,e:"Poluanții rămân concentrați în habitaclu."},
+{q:"Particulele mai mari sunt cele mai periculoase.",a:false,e:"PM2.5 sunt cele mai periculoase."},
+{q:"Cărțile sunt o sursă de poluare a aerului.",a:false,e:"Principalele surse sunt traficul și arderea combustibililor."},
+{q:"Nivelul poluării poate fi urmărit online în România.",a:true,e:"Există platforme de monitorizare în timp real."}
 ];
 
 let current=0;
 let score=0;
+let userAnswers=[];
 
 function loadQuestion(){
 document.getElementById("question").innerText=questions[current].q;
@@ -395,11 +422,9 @@ document.getElementById("result").innerText="";
 function answer(choice){
 let cyclist=document.getElementById("cyclist");
 
-if(choice===true){
-cyclist.style.transform="translateX(60px)";
-}else{
-cyclist.style.transform="translateX(-60px)";
-}
+cyclist.style.transform=choice?"translateX(60px)":"translateX(-60px)";
+
+userAnswers.push(choice);
 
 if(choice===questions[current].a){
 score++;
@@ -417,6 +442,7 @@ loadQuestion();
 }else{
 document.getElementById("question").innerText="Game Over! Scor: "+score+"/"+questions.length;
 document.getElementById("replay").classList.remove("hidden");
+document.getElementById("verify").classList.remove("hidden");
 }
 },600);
 }
@@ -424,8 +450,24 @@ document.getElementById("replay").classList.remove("hidden");
 function restart(){
 current=0;
 score=0;
+userAnswers=[];
 document.getElementById("replay").classList.add("hidden");
+document.getElementById("verify").classList.add("hidden");
+document.getElementById("explanations").style.display="none";
 loadQuestion();
+}
+
+function showAnswers(){
+let container=document.getElementById("explanations");
+container.innerHTML="<h3>Răspunsuri corecte și explicații:</h3>";
+
+questions.forEach((item,index)=>{
+container.innerHTML+=
+"<p><strong>"+(index+1)+".</strong> "+item.q+
+"<br><em>"+item.e+"</em></p><hr>";
+});
+
+container.style.display="block";
 }
 
 loadQuestion();
