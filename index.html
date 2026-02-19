@@ -8,8 +8,8 @@
 <style>
 body{
 margin:0;
-font-family: 'Segoe UI', sans-serif;
-background: linear-gradient(to bottom, #8ED081, #6DBE45);
+font-family:'Segoe UI', sans-serif;
+background:#F3FAF4;
 color:#1F3D2B;
 text-align:center;
 }
@@ -20,116 +20,85 @@ color:white;
 padding:40px;
 }
 
+nav{
+background:#5FB74C;
+padding:15px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 20px;
+font-weight:bold;
+}
+
 section{
 padding:60px 20px;
-max-width:1000px;
+max-width:800px;
 margin:auto;
 }
 
 #game{
 background:white;
-padding:50px;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.answers{
+margin-top:30px;
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.answer-btn{
+padding:10px 20px;
+border:2px solid #5FB74C;
+background:white;
 border-radius:25px;
-box-shadow:0 15px 40px rgba(0,0,0,0.15);
-position:relative;
-overflow:hidden;
-}
-
-#road-area{
-position:relative;
-height:350px;
-margin-top:40px;
-}
-
-/* Drum perspectivă */
-.road{
-position:absolute;
-bottom:0;
-width:40%;
-height:320px;
-background:#3C3C3C;
-clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
 cursor:pointer;
+font-weight:bold;
 transition:0.3s;
 }
 
-.road:hover{
-background:#4F4F4F;
+.answer-btn:hover{
+background:#F8E3EC;
 }
 
-#left-road{
-left:5%;
-}
-
-#right-road{
-right:5%;
-}
-
-/* Marcaje */
-.road::after{
-content:"";
-position:absolute;
-left:50%;
-top:20px;
-transform:translateX(-50%);
-width:6px;
-height:85%;
-background:repeating-linear-gradient(
-to bottom,
-white 0px,
-white 25px,
-transparent 25px,
-transparent 50px
-);
-}
-
-/* Text jos */
-.label{
-position:absolute;
-bottom:15px;
-left:50%;
-transform:translateX(-50%);
-color:white;
-font-weight:bold;
-font-size:18px;
-}
-
-/* Biciclist */
-#cyclist{
-position:absolute;
-bottom:40px;
-left:50%;
-transform:translateX(-50%);
-font-size:55px;
-transition:0.6s ease;
-}
-
-button{
-padding:12px 25px;
+.answer-btn.selected{
 background:#E63E7B;
 color:white;
-border:none;
-border-radius:30px;
-cursor:pointer;
-margin-top:20px;
-font-size:15px;
+border-color:#E63E7B;
 }
-
-button:hover{
-background:#C92D66;
-}
-
-.hidden{display:none;}
 
 #result{
 margin-top:20px;
 font-weight:bold;
 }
 
+button{
+padding:10px 20px;
+background:#E63E7B;
+color:white;
+border:none;
+border-radius:25px;
+cursor:pointer;
+margin-top:15px;
+}
+
+button:hover{
+background:#C92D66;
+}
+
+.hidden{
+display:none;
+}
+
 #explanations{
 display:none;
 text-align:left;
-margin-top:30px;
+margin-top:25px;
 background:#F3FAF4;
 padding:20px;
 border-radius:15px;
@@ -152,18 +121,9 @@ border-radius:15px;
 
 <p id="question"></p>
 
-<div id="road-area">
-
-<div id="left-road" class="road" onclick="answer(false)">
-<div class="label">FALS</div>
-</div>
-
-<div id="right-road" class="road" onclick="answer(true)">
-<div class="label">ADEVĂRAT</div>
-</div>
-
-<div id="cyclist">🚴‍♀️</div>
-
+<div class="answers">
+<button class="answer-btn" onclick="answer(true,this)">Adevărat</button>
+<button class="answer-btn" onclick="answer(false,this)">Fals</button>
 </div>
 
 <p id="result"></p>
@@ -174,12 +134,23 @@ border-radius:15px;
 <div id="explanations"></div>
 
 </div>
+
 </section>
+
+<footer style="background:#2F8F3A;color:white;padding:40px;margin-top:60px;">
+<h3>Instituții partenere</h3>
+<p>Primăria Sector 1 | Primăria Sector 2</p>
+
+<h3 style="margin-top:30px;">Organizații partenere</h3>
+<p>Platforma de Mediu pentru București | Ecopolis</p>
+</footer>
 
 <script>
 const questions=[
-{q:"Poluarea aerului contribuie la 7% din totalul deceselor în România.",a:true,e:"Aproximativ 7% dintre decese sunt asociate poluării."},
-{q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",a:false,e:"Sunt printre cele mai ridicate din Europa."}
+{q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.",a:true,e:"Este considerată principalul risc de mediu pentru sănătate."},
+{q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",a:false,e:"Sunt printre cele mai ridicate din Europa."},
+{q:"Poluarea aerului contribuie la 7% din totalul deceselor în România.",a:true,e:"Aproximativ 7% din decese sunt asociate poluării."},
+{q:"Particulele mai mari sunt cele mai periculoase.",a:false,e:"PM2.5 sunt cele mai periculoase deoarece pătrund în plămâni."}
 ];
 
 let current=0;
@@ -188,17 +159,19 @@ let score=0;
 function loadQuestion(){
 document.getElementById("question").innerText=questions[current].q;
 document.getElementById("result").innerText="";
+clearSelection();
 }
 
-function answer(choice){
-
-let cyclist=document.getElementById("cyclist");
-
-if(choice){
-cyclist.style.left="72%";
-}else{
-cyclist.style.left="28%";
+function clearSelection(){
+document.querySelectorAll(".answer-btn").forEach(btn=>{
+btn.classList.remove("selected");
+});
 }
+
+function answer(choice,button){
+
+clearSelection();
+button.classList.add("selected");
 
 if(choice===questions[current].a){
 score++;
@@ -208,7 +181,6 @@ document.getElementById("result").innerText="Greșit!";
 }
 
 setTimeout(()=>{
-cyclist.style.left="50%";
 current++;
 
 if(current<questions.length){
@@ -218,7 +190,7 @@ document.getElementById("question").innerText="Game Over! Scor: "+score+"/"+ques
 document.getElementById("replay").classList.remove("hidden");
 document.getElementById("verify").classList.remove("hidden");
 }
-},700);
+},800);
 }
 
 function restart(){
@@ -232,7 +204,7 @@ loadQuestion();
 
 function showAnswers(){
 let container=document.getElementById("explanations");
-container.innerHTML="<h3>Explicații:</h3>";
+container.innerHTML="<h3>Răspunsuri și explicații:</h3>";
 questions.forEach((item,index)=>{
 container.innerHTML+="<p><strong>"+(index+1)+".</strong> "+item.e+"</p>";
 });
