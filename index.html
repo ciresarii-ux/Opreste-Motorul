@@ -14,22 +14,43 @@ color:#1F3D2B;
 scroll-behavior:smooth;
 }
 
+/* ================= HEADER ================= */
+
 header{
 background:#2F8F3A;
 color:white;
-padding:50px 20px;
+padding:30px 20px;
+}
+
+.header-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+max-width:1100px;
+margin:auto;
+}
+
+.header-text{
 text-align:center;
+flex:1;
 }
 
 header h1{
 margin:0;
-font-size:42px;
+font-size:38px;
 }
 
 header p{
-margin-top:10px;
-font-size:18px;
+margin-top:8px;
+font-size:16px;
 }
+
+.logo{
+height:70px;
+object-fit:contain;
+}
+
+/* ================= NAV ================= */
 
 nav{
 display:flex;
@@ -51,6 +72,8 @@ nav a:hover{
 color:#E63E7B;
 }
 
+/* ================= SECTIONS ================= */
+
 section{
 padding:80px 20px;
 max-width:1000px;
@@ -59,25 +82,11 @@ text-align:center;
 }
 
 h2{
-font-size:32px;
+font-size:30px;
 margin-bottom:30px;
 }
 
-button{
-padding:14px 28px;
-background:#E63E7B;
-color:white;
-border:none;
-cursor:pointer;
-margin:10px;
-font-size:16px;
-border-radius:30px;
-transition:0.3s;
-}
-
-button:hover{
-background:#C92D66;
-}
+/* ================= GAME ================= */
 
 #game{
 background:white;
@@ -89,45 +98,77 @@ box-shadow:0 10px 30px rgba(0,0,0,0.08);
 #road{
 display:flex;
 align-items:center;
-justify-content:space-between;
+justify-content:center;
+gap:40px;
 margin-top:40px;
 }
 
+/* Elegant buttons */
 .side{
-width:40%;
-background:#F3FAF4;
-border:3px solid #5FB74C;
-padding:40px 20px;
-border-radius:20px;
+min-width:140px;
+background:white;
+border:2px solid #5FB74C;
+padding:14px 25px;
+border-radius:40px;
 cursor:pointer;
-transition:0.3s;
+transition:0.25s ease;
+box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+
+.side h3{
+margin:0;
+font-size:16px;
+font-weight:600;
 }
 
 .side:hover{
 background:#E63E7B;
 color:white;
 border-color:#E63E7B;
+transform:translateY(-3px);
 }
 
 #cyclist{
-font-size:70px;
+font-size:60px;
 transition:transform 0.5s ease;
 }
 
 #result{
 margin-top:20px;
 font-weight:bold;
-font-size:18px;
+font-size:16px;
+}
+
+button{
+padding:12px 24px;
+background:#E63E7B;
+color:white;
+border:none;
+cursor:pointer;
+margin:10px;
+font-size:14px;
+border-radius:30px;
+transition:0.3s;
+}
+
+button:hover{
+background:#C92D66;
+}
+
+.hidden{
+display:none;
 }
 
 #explanations{
 margin-top:30px;
 text-align:left;
 background:white;
-padding:30px;
+padding:25px;
 border-radius:15px;
 display:none;
 }
+
+/* ================= CARDS ================= */
 
 .card{
 background:white;
@@ -143,6 +184,8 @@ border-radius:15px;
 margin-top:20px;
 }
 
+/* ================= FOOTER ================= */
+
 footer{
 background:#2F8F3A;
 color:white;
@@ -151,11 +194,35 @@ text-align:center;
 margin-top:60px;
 }
 
-.hidden{
-display:none;
+.partners{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:40px;
+flex-wrap:wrap;
+margin-top:20px;
 }
 
+.partners img{
+height:60px;
+object-fit:contain;
+filter:brightness(0) invert(1);
+opacity:0.95;
+}
+
+/* ================= MOBILE ================= */
+
 @media(max-width:768px){
+
+.header-container{
+flex-direction:column;
+gap:15px;
+}
+
+.logo{
+height:55px;
+}
+
 #road{
 flex-direction:column;
 gap:20px;
@@ -163,6 +230,7 @@ gap:20px;
 
 .side{
 width:80%;
+text-align:center;
 }
 }
 </style>
@@ -171,8 +239,18 @@ width:80%;
 <body>
 
 <header>
+<div class="header-container">
+
+<img src="logo-opreste.png" class="logo">
+
+<div class="header-text">
 <h1>Campania Oprește Motorul</h1>
 <p>Inițiator: Asociația Părinți de Cireșari</p>
+</div>
+
+<img src="logo-ciresari.png" class="logo">
+
+</div>
 </header>
 
 <nav>
@@ -226,7 +304,9 @@ allowfullscreen>
 <div class="card">
 <h3>Materiale</h3>
 <p>Materialele pot fi încărcate în repository și oferite gratuit pentru descărcare.</p>
-<a href="#" download><button>Descarcă material</button></a>
+<a href="ghid-opreste-motorul.pdf" download>
+<button>Descarcă material</button>
+</a>
 </div>
 
 </section>
@@ -253,7 +333,7 @@ Asociația Părinți de Cireșari, înființată în iulie 2020, are ca misiune 
 </p>
 
 <p>
-Campania Oprește Motorul este prima inițiativă de mediu concepută și implementată de asociație în anul 2020, fiind susținută prin implicarea comunității și ulterior prin microfinanțare obținută în cadrul unui concurs organizat de Asociația Ecopolis.
+Campania Oprește Motorul este prima inițiativă de mediu concepută și implementată de asociație în anul 2020.
 </p>
 </div>
 
@@ -262,10 +342,16 @@ Campania Oprește Motorul este prima inițiativă de mediu concepută și implem
 <footer>
 
 <h3>Instituții partenere</h3>
-<p>Primăria Sector 1 | Primăria Sector 2</p>
+<div class="partners">
+<img src="logo-ps1.png">
+<img src="logo-pmb.png">
+</div>
 
 <h3 style="margin-top:40px;">Organizații partenere</h3>
-<p>Platforma de Mediu pentru București | Ecopolis</p>
+<div class="partners">
+<img src="logo-ecopolis.png">
+<img src="logo-directiademediu.png">
+</div>
 
 </footer>
 
@@ -296,9 +382,9 @@ function answer(choice){
 let cyclist=document.getElementById("cyclist");
 
 if(choice===true){
-cyclist.style.transform="translateX(80px)";
+cyclist.style.transform="translateX(60px)";
 }else{
-cyclist.style.transform="translateX(-80px)";
+cyclist.style.transform="translateX(-60px)";
 }
 
 if(choice===questions[current].a){
