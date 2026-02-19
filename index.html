@@ -1,1 +1,214 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oprește Motorul</title>
 
+<style>
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f4f9f4;
+    color:#1b3d2f;
+}
+
+header {
+    background:#1b5e20;
+    color:white;
+    padding:30px;
+    text-align:center;
+}
+
+nav {
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    background:#2e7d32;
+    padding:15px;
+}
+
+nav a {
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+section {
+    padding:60px 20px;
+    text-align:center;
+}
+
+button {
+    padding:12px 25px;
+    background:#2e7d32;
+    color:white;
+    border:none;
+    cursor:pointer;
+    margin:10px;
+    font-size:16px;
+}
+
+button:hover {
+    background:#1b5e20;
+}
+
+#game {
+    max-width:700px;
+    margin:auto;
+    margin-top:30px;
+}
+
+.choices {
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    margin-top:30px;
+}
+
+.choice {
+    padding:25px;
+    background:white;
+    border:2px solid #2e7d32;
+    cursor:pointer;
+    width:150px;
+    font-weight:bold;
+}
+
+.choice:hover {
+    background:#e8f5e9;
+}
+
+footer {
+    background:#1b5e20;
+    color:white;
+    padding:40px;
+    text-align:center;
+}
+
+.hidden { display:none; }
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Campania Oprește Motorul</h1>
+<p>Inițiator: Asociația Părinți de Cireșari</p>
+</header>
+
+<nav>
+<a href="#advocacy">Advocacy</a>
+<a href="#educatie">Educație</a>
+<a href="#despre">Despre noi</a>
+</nav>
+
+<section>
+<h2>Cât de multe știi despre poluarea aerului?</h2>
+
+<div id="game">
+<p id="question"></p>
+
+<div class="choices">
+<div class="choice" onclick="answer(true)">Adevărat</div>
+<div class="choice" onclick="answer(false)">Fals</div>
+</div>
+
+<p id="result"></p>
+<button id="replay" class="hidden" onclick="restart()">Replay</button>
+<button id="verify" class="hidden" onclick="showAnswers()">Verifică răspunsurile</button>
+</div>
+</section>
+
+<section id="advocacy">
+<h2>Advocacy</h2>
+
+<h3>Inițiative</h3>
+<p>Aici poți adăuga articole despre inițiative.</p>
+
+<h3>Materiale</h3>
+<p>În curând materiale descărcabile.</p>
+</section>
+
+<section id="educatie">
+<h2>Educație</h2>
+<h3>Solicită atelier de mediu</h3>
+
+<p>Atelier interactiv despre impactul poluării aerului și soluții practice pentru reducerea noxelor în comunitate.</p>
+
+<a href="mailto:home@parintideciresari.ro">
+<button>Solicită</button>
+</a>
+</section>
+
+<section id="despre">
+<h2>Despre Noi</h2>
+
+<p>
+Asociația Părinți de Cireșari, înființată în iulie 2020, are ca misiune sprijinirea comunității locale prin proiecte dedicate educației, sănătății și protecției mediului.
+</p>
+
+<p>
+Campania Oprește Motorul este prima inițiativă de mediu concepută și implementată de asociație în anul 2020.
+</p>
+</section>
+
+<footer>
+<h3>Instituții partenere</h3>
+<p>Primăria Sector 1 | Primăria Sector 2</p>
+
+<h3>Organizații partenere</h3>
+<p>Platforma de Mediu pentru București | Ecopolis</p>
+</footer>
+
+<script>
+const questions = [
+{q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.", a:true},
+{q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.", a:false},
+{q:"Poluarea aerului contribuie la 7% din totalul deceselor în România.", a:true},
+{q:"Cărțile sunt o sursă importantă de poluare.", a:false}
+];
+
+let current = 0;
+let score = 0;
+
+function loadQuestion(){
+document.getElementById("question").innerText = questions[current].q;
+document.getElementById("result").innerText="";
+}
+
+function answer(choice){
+if(choice === questions[current].a){
+score++;
+document.getElementById("result").innerText="Corect!";
+}else{
+document.getElementById("result").innerText="Greșit!";
+}
+current++;
+
+if(current < questions.length){
+setTimeout(loadQuestion,1000);
+}else{
+document.getElementById("question").innerText="Game Over! Scor: "+score+"/"+questions.length;
+document.getElementById("replay").classList.remove("hidden");
+document.getElementById("verify").classList.remove("hidden");
+}
+}
+
+function restart(){
+current=0;
+score=0;
+document.getElementById("replay").classList.add("hidden");
+document.getElementById("verify").classList.add("hidden");
+loadQuestion();
+}
+
+function showAnswers(){
+alert("Răspunsurile corecte sunt disponibile în documentația campaniei.");
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>
