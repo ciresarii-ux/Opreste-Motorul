@@ -25,6 +25,7 @@ padding:40px 20px;
 .header-container{
 display:flex;
 align-items:center;
+justify-content:space-between;
 max-width:1100px;
 margin:auto;
 }
@@ -34,13 +35,19 @@ height:80px;
 object-fit:contain;
 }
 
+.logo-opreste-header{
+height:85px;
+object-fit:contain;
+}
+
 .header-text{
-margin-left:30px;
+text-align:center;
+flex:1;
 }
 
 header h1{
 margin:0;
-font-size:38px;
+font-size:36px;
 }
 
 header p{
@@ -80,20 +87,9 @@ text-align:center;
 }
 
 h2{
-font-size:30px;
+font-size:28px;
 margin-bottom:30px;
 }
-
-/* Logo Opreste pe zona alba */
-
-.logo-opreste{
-height:140px;
-display:block;
-margin:0 auto 40px auto;
-object-fit:contain;
-transition:0.3s ease;
-}
-
 
 /* ================= GAME ================= */
 
@@ -114,10 +110,10 @@ margin-top:40px;
 
 /* Elegant buttons */
 .side{
-min-width:140px;
+min-width:130px;
 background:white;
 border:2px solid #5FB74C;
-padding:14px 25px;
+padding:12px 22px;
 border-radius:40px;
 cursor:pointer;
 transition:0.25s ease;
@@ -126,7 +122,7 @@ box-shadow:0 4px 12px rgba(0,0,0,0.05);
 
 .side h3{
 margin:0;
-font-size:16px;
+font-size:15px;
 font-weight:600;
 }
 
@@ -138,7 +134,7 @@ transform:translateY(-3px);
 }
 
 #cyclist{
-font-size:60px;
+font-size:55px;
 transition:transform 0.5s ease;
 }
 
@@ -149,7 +145,7 @@ font-size:16px;
 }
 
 button{
-padding:12px 24px;
+padding:10px 22px;
 background:#E63E7B;
 color:white;
 border:none;
@@ -213,7 +209,7 @@ margin-top:20px;
 }
 
 .partners img{
-height:70px;
+height:65px;
 object-fit:contain;
 background:white;
 padding:10px 15px;
@@ -227,19 +223,11 @@ box-shadow:0 4px 12px rgba(0,0,0,0.15);
 
 .header-container{
 flex-direction:column;
-text-align:center;
+gap:20px;
 }
 
-.header-text{
-margin-left:0;
-margin-top:15px;
-}
-
-.logo-ciresarii{
-height:70px;
-}
-
-.logo-opreste{
+.logo-ciresarii,
+.logo-opreste-header{
 height:70px;
 }
 
@@ -260,12 +248,16 @@ text-align:center;
 
 <header>
 <div class="header-container">
+
 <img src="logo-ciresarii.png" class="logo-ciresarii">
 
 <div class="header-text">
 <h1>Campania Oprește Motorul</h1>
 <p>Inițiator: Asociația Părinți de Cireșari</p>
 </div>
+
+<img src="logo-opreste.png" class="logo-opreste-header">
+
 </div>
 </header>
 
@@ -276,9 +268,6 @@ text-align:center;
 </nav>
 
 <section>
-
-<img src="logo-opreste.png" class="logo-opreste">
-
 <h2>Cât de multe știi despre poluarea aerului?</h2>
 
 <div id="game">
@@ -393,7 +382,6 @@ document.getElementById("result").innerText="";
 }
 
 function answer(choice){
-
 let cyclist=document.getElementById("cyclist");
 
 if(choice===true){
