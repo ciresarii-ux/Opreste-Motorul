@@ -11,31 +11,38 @@ margin:0;
 font-family:'Segoe UI', sans-serif;
 background:#F3FAF4;
 color:#1F3D2B;
-text-align:center;
 }
 
 header{
 background:#2F8F3A;
 color:white;
 padding:40px;
+text-align:center;
 }
 
 nav{
 background:#5FB74C;
+display:flex;
+justify-content:center;
+gap:40px;
 padding:15px;
 }
 
 nav a{
 color:white;
 text-decoration:none;
-margin:0 20px;
 font-weight:bold;
+}
+
+nav a:hover{
+text-decoration:underline;
 }
 
 section{
 padding:60px 20px;
 max-width:800px;
 margin:auto;
+text-align:center;
 }
 
 #game{
@@ -53,12 +60,14 @@ gap:20px;
 }
 
 .answer-btn{
-padding:10px 20px;
+min-width:120px;
+padding:12px 20px;
 border:2px solid #5FB74C;
 background:white;
-border-radius:25px;
+border-radius:30px;
 cursor:pointer;
 font-weight:bold;
+font-size:14px;
 transition:0.3s;
 }
 
@@ -77,7 +86,7 @@ margin-top:20px;
 font-weight:bold;
 }
 
-button{
+.main-btn{
 padding:10px 20px;
 background:#E63E7B;
 color:white;
@@ -87,7 +96,7 @@ cursor:pointer;
 margin-top:15px;
 }
 
-button:hover{
+.main-btn:hover{
 background:#C92D66;
 }
 
@@ -103,6 +112,14 @@ background:#F3FAF4;
 padding:20px;
 border-radius:15px;
 }
+
+footer{
+background:#2F8F3A;
+color:white;
+padding:40px;
+margin-top:60px;
+text-align:center;
+}
 </style>
 </head>
 
@@ -113,6 +130,12 @@ border-radius:15px;
 <p>Inițiator: Asociația Părinți de Cireșari</p>
 </header>
 
+<nav>
+<a href="#advocacy">Advocacy</a>
+<a href="#educatie">Educație</a>
+<a href="#despre">Despre noi</a>
+</nav>
+
 <section>
 
 <h2>Cât de multe știi despre poluarea aerului?</h2>
@@ -122,14 +145,14 @@ border-radius:15px;
 <p id="question"></p>
 
 <div class="answers">
-<button class="answer-btn" onclick="answer(true,this)">Adevărat</button>
-<button class="answer-btn" onclick="answer(false,this)">Fals</button>
+<button class="answer-btn" onclick="answer(true,this)">ADEVĂRAT</button>
+<button class="answer-btn" onclick="answer(false,this)">FALS</button>
 </div>
 
 <p id="result"></p>
 
-<button id="replay" class="hidden" onclick="restart()">Replay</button>
-<button id="verify" class="hidden" onclick="showAnswers()">Verifică răspunsurile</button>
+<button id="replay" class="main-btn hidden" onclick="restart()">Replay</button>
+<button id="verify" class="main-btn hidden" onclick="showAnswers()">Verifică răspunsurile</button>
 
 <div id="explanations"></div>
 
@@ -137,7 +160,7 @@ border-radius:15px;
 
 </section>
 
-<footer style="background:#2F8F3A;color:white;padding:40px;margin-top:60px;">
+<footer>
 <h3>Instituții partenere</h3>
 <p>Primăria Sector 1 | Primăria Sector 2</p>
 
@@ -190,7 +213,7 @@ document.getElementById("question").innerText="Game Over! Scor: "+score+"/"+ques
 document.getElementById("replay").classList.remove("hidden");
 document.getElementById("verify").classList.remove("hidden");
 }
-},800);
+},700);
 }
 
 function restart(){
