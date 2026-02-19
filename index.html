@@ -8,41 +8,75 @@
 <style>
 body{
 margin:0;
-font-family:'Segoe UI', sans-serif;
+font-family: Arial, sans-serif;
 background:#F3FAF4;
 color:#1F3D2B;
+scroll-behavior:smooth;
 }
 
 header{
 background:#2F8F3A;
 color:white;
-padding:40px;
+padding:50px 20px;
 text-align:center;
 }
 
+header h1{
+margin:0;
+font-size:42px;
+}
+
+header p{
+margin-top:10px;
+font-size:18px;
+}
+
 nav{
-background:#5FB74C;
 display:flex;
 justify-content:center;
-gap:40px;
-padding:15px;
+gap:50px;
+background:#5FB74C;
+padding:18px;
+flex-wrap:wrap;
 }
 
 nav a{
 color:white;
 text-decoration:none;
 font-weight:bold;
+transition:0.3s;
 }
 
 nav a:hover{
-text-decoration:underline;
+color:#E63E7B;
 }
 
 section{
-padding:60px 20px;
-max-width:800px;
+padding:80px 20px;
+max-width:1000px;
 margin:auto;
 text-align:center;
+}
+
+h2{
+font-size:32px;
+margin-bottom:30px;
+}
+
+button{
+padding:14px 28px;
+background:#E63E7B;
+color:white;
+border:none;
+cursor:pointer;
+margin:10px;
+font-size:16px;
+border-radius:30px;
+transition:0.3s;
+}
+
+button:hover{
+background:#C92D66;
 }
 
 #game{
@@ -52,73 +86,84 @@ border-radius:20px;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
-.answers{
-margin-top:30px;
+#road{
 display:flex;
-justify-content:center;
-gap:20px;
+align-items:center;
+justify-content:space-between;
+margin-top:40px;
 }
 
-.answer-btn{
-min-width:120px;
-padding:12px 20px;
-border:2px solid #5FB74C;
-background:white;
-border-radius:30px;
+.side{
+width:40%;
+background:#F3FAF4;
+border:3px solid #5FB74C;
+padding:40px 20px;
+border-radius:20px;
 cursor:pointer;
-font-weight:bold;
-font-size:14px;
 transition:0.3s;
 }
 
-.answer-btn:hover{
-background:#F8E3EC;
-}
-
-.answer-btn.selected{
+.side:hover{
 background:#E63E7B;
 color:white;
 border-color:#E63E7B;
 }
 
+#cyclist{
+font-size:70px;
+transition:transform 0.5s ease;
+}
+
 #result{
 margin-top:20px;
 font-weight:bold;
+font-size:18px;
 }
 
-.main-btn{
-padding:10px 20px;
-background:#E63E7B;
+#explanations{
+margin-top:30px;
+text-align:left;
+background:white;
+padding:30px;
+border-radius:15px;
+display:none;
+}
+
+.card{
+background:white;
+padding:30px;
+margin:20px 0;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+iframe{
+max-width:100%;
+border-radius:15px;
+margin-top:20px;
+}
+
+footer{
+background:#2F8F3A;
 color:white;
-border:none;
-border-radius:25px;
-cursor:pointer;
-margin-top:15px;
-}
-
-.main-btn:hover{
-background:#C92D66;
+padding:60px 20px;
+text-align:center;
+margin-top:60px;
 }
 
 .hidden{
 display:none;
 }
 
-#explanations{
-display:none;
-text-align:left;
-margin-top:25px;
-background:#F3FAF4;
-padding:20px;
-border-radius:15px;
+@media(max-width:768px){
+#road{
+flex-direction:column;
+gap:20px;
 }
 
-footer{
-background:#2F8F3A;
-color:white;
-padding:40px;
-margin-top:60px;
-text-align:center;
+.side{
+width:80%;
+}
 }
 </style>
 </head>
@@ -137,43 +182,105 @@ text-align:center;
 </nav>
 
 <section>
-
 <h2>Cât de multe știi despre poluarea aerului?</h2>
 
 <div id="game">
 
 <p id="question"></p>
 
-<div class="answers">
-<button class="answer-btn" onclick="answer(true,this)">ADEVĂRAT</button>
-<button class="answer-btn" onclick="answer(false,this)">FALS</button>
+<div id="road">
+<div class="side" onclick="answer(false)">
+<h3>Fals</h3>
+</div>
+
+<div id="cyclist">🚴</div>
+
+<div class="side" onclick="answer(true)">
+<h3>Adevărat</h3>
+</div>
 </div>
 
 <p id="result"></p>
 
-<button id="replay" class="main-btn hidden" onclick="restart()">Replay</button>
-<button id="verify" class="main-btn hidden" onclick="showAnswers()">Verifică răspunsurile</button>
+<button id="replay" class="hidden" onclick="restart()">Replay</button>
+<button id="verify" class="hidden" onclick="showAnswers()">Verifică răspunsurile</button>
 
 <div id="explanations"></div>
 
+</div>
+</section>
+
+<section id="advocacy">
+<h2>Advocacy</h2>
+
+<div class="card">
+<h3>Inițiative</h3>
+<p>Aici pot fi publicate articole despre inițiativele campaniei. Poți insera materiale video YouTube direct în platformă.</p>
+
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+allowfullscreen>
+</iframe>
+</div>
+
+<div class="card">
+<h3>Materiale</h3>
+<p>Materialele pot fi încărcate în repository și oferite gratuit pentru descărcare.</p>
+<a href="#" download><button>Descarcă material</button></a>
+</div>
+
+</section>
+
+<section id="educatie">
+<h2>Educație</h2>
+
+<div class="card">
+<h3>Solicită atelier de mediu</h3>
+<p>Atelier interactiv despre impactul poluării aerului, efectele asupra sănătății și soluții concrete pentru reducerea emisiilor în comunitate.</p>
+
+<a href="mailto:home@parintideciresari.ro">
+<button>Solicită</button>
+</a>
+</div>
+</section>
+
+<section id="despre">
+<h2>Despre Noi</h2>
+
+<div class="card">
+<p>
+Asociația Părinți de Cireșari, înființată în iulie 2020, are ca misiune sprijinirea comunității locale prin proiecte dedicate educației, sănătății și protecției mediului.
+</p>
+
+<p>
+Campania Oprește Motorul este prima inițiativă de mediu concepută și implementată de asociație în anul 2020, fiind susținută prin implicarea comunității și ulterior prin microfinanțare obținută în cadrul unui concurs organizat de Asociația Ecopolis.
+</p>
 </div>
 
 </section>
 
 <footer>
+
 <h3>Instituții partenere</h3>
 <p>Primăria Sector 1 | Primăria Sector 2</p>
 
-<h3 style="margin-top:30px;">Organizații partenere</h3>
+<h3 style="margin-top:40px;">Organizații partenere</h3>
 <p>Platforma de Mediu pentru București | Ecopolis</p>
+
 </footer>
 
 <script>
 const questions=[
 {q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.",a:true,e:"Este considerată principalul risc de mediu pentru sănătate."},
+{q:"Persoanele în vârstă sunt cele mai afectate de poluarea aerului.",a:true,e:"Vârstnicii și copiii sunt cei mai vulnerabili."},
 {q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",a:false,e:"Sunt printre cele mai ridicate din Europa."},
 {q:"Poluarea aerului contribuie la 7% din totalul deceselor în România.",a:true,e:"Aproximativ 7% din decese sunt asociate poluării."},
-{q:"Particulele mai mari sunt cele mai periculoase.",a:false,e:"PM2.5 sunt cele mai periculoase deoarece pătrund în plămâni."}
+{q:"În București se pierd aproape 2 ani de viață din cauza poluării.",a:true,e:"Studiile arată o pierdere medie de aproape 2 ani."},
+{q:"România ocupă locul 8 în Europa la decese cauzate de poluare.",a:true,e:"Conform statisticilor europene."},
+{q:"În interiorul unei mașini este mai multă poluare decât în exterior.",a:true,e:"Poluanții rămân concentrați în habitaclu."},
+{q:"Particulele mai mari sunt cele mai periculoase.",a:false,e:"PM2.5 sunt cele mai periculoase deoarece pătrund în plămâni."},
+{q:"Cărțile sunt o sursă de poluare a aerului.",a:false,e:"Principalele surse sunt traficul și arderea combustibililor."},
+{q:"Nivelul poluării poate fi urmărit online în România.",a:true,e:"Există platforme de monitorizare în timp real."}
 ];
 
 let current=0;
@@ -182,19 +289,17 @@ let score=0;
 function loadQuestion(){
 document.getElementById("question").innerText=questions[current].q;
 document.getElementById("result").innerText="";
-clearSelection();
 }
 
-function clearSelection(){
-document.querySelectorAll(".answer-btn").forEach(btn=>{
-btn.classList.remove("selected");
-});
+function answer(choice){
+
+let cyclist=document.getElementById("cyclist");
+
+if(choice===true){
+cyclist.style.transform="translateX(80px)";
+}else{
+cyclist.style.transform="translateX(-80px)";
 }
-
-function answer(choice,button){
-
-clearSelection();
-button.classList.add("selected");
 
 if(choice===questions[current].a){
 score++;
@@ -204,6 +309,7 @@ document.getElementById("result").innerText="Greșit!";
 }
 
 setTimeout(()=>{
+cyclist.style.transform="translateX(0px)";
 current++;
 
 if(current<questions.length){
@@ -213,7 +319,7 @@ document.getElementById("question").innerText="Game Over! Scor: "+score+"/"+ques
 document.getElementById("replay").classList.remove("hidden");
 document.getElementById("verify").classList.remove("hidden");
 }
-},700);
+},600);
 }
 
 function restart(){
@@ -227,7 +333,7 @@ loadQuestion();
 
 function showAnswers(){
 let container=document.getElementById("explanations");
-container.innerHTML="<h3>Răspunsuri și explicații:</h3>";
+container.innerHTML="<h3>Răspunsuri corecte și explicații:</h3>";
 questions.forEach((item,index)=>{
 container.innerHTML+="<p><strong>"+(index+1)+".</strong> "+item.e+"</p>";
 });
