@@ -6,87 +6,158 @@
 <title>Oprește Motorul</title>
 
 <style>
-body {
-    margin:0;
-    font-family: Arial, sans-serif;
-    background:#f4f9f4;
-    color:#1b3d2f;
+body{
+margin:0;
+font-family: Arial, sans-serif;
+background:#F3FAF4;
+color:#1F3D2B;
+scroll-behavior:smooth;
 }
 
-header {
-    background:#1b5e20;
-    color:white;
-    padding:30px;
-    text-align:center;
+header{
+background:#2F8F3A;
+color:white;
+padding:50px 20px;
+text-align:center;
 }
 
-nav {
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    background:#2e7d32;
-    padding:15px;
+header h1{
+margin:0;
+font-size:40px;
 }
 
-nav a {
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
+header p{
+margin-top:10px;
+font-size:18px;
 }
 
-section {
-    padding:60px 20px;
-    text-align:center;
+nav{
+display:flex;
+justify-content:center;
+gap:50px;
+background:#5FB74C;
+padding:18px;
 }
 
-button {
-    padding:12px 25px;
-    background:#2e7d32;
-    color:white;
-    border:none;
-    cursor:pointer;
-    margin:10px;
-    font-size:16px;
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+font-size:16px;
+transition:0.3s;
 }
 
-button:hover {
-    background:#1b5e20;
+nav a:hover{
+color:#E63E7B;
 }
 
-#game {
-    max-width:700px;
-    margin:auto;
-    margin-top:30px;
+section{
+padding:80px 20px;
+text-align:center;
+max-width:1000px;
+margin:auto;
 }
 
-.choices {
-    display:flex;
-    justify-content:center;
-    gap:60px;
-    margin-top:30px;
+h2{
+font-size:32px;
+margin-bottom:30px;
 }
 
-.choice {
-    padding:25px;
-    background:white;
-    border:2px solid #2e7d32;
-    cursor:pointer;
-    width:150px;
-    font-weight:bold;
+button{
+padding:14px 28px;
+background:#E63E7B;
+color:white;
+border:none;
+cursor:pointer;
+margin:10px;
+font-size:16px;
+border-radius:30px;
+transition:0.3s;
 }
 
-.choice:hover {
-    background:#e8f5e9;
+button:hover{
+background:#C92D66;
 }
 
-footer {
-    background:#1b5e20;
-    color:white;
-    padding:40px;
-    text-align:center;
+#game{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+max-width:800px;
+margin:auto;
 }
 
-.hidden { display:none; }
+.choices{
+display:flex;
+justify-content:center;
+gap:60px;
+margin-top:30px;
+flex-wrap:wrap;
+}
+
+.choice{
+padding:25px;
+background:#F3FAF4;
+border:2px solid #5FB74C;
+cursor:pointer;
+width:180px;
+font-weight:bold;
+border-radius:15px;
+transition:0.3s;
+}
+
+.choice:hover{
+background:#E63E7B;
+color:white;
+border-color:#E63E7B;
+}
+
+#result{
+margin-top:20px;
+font-weight:bold;
+font-size:18px;
+}
+
+#explanations{
+margin-top:30px;
+text-align:left;
+background:#ffffff;
+padding:30px;
+border-radius:15px;
+display:none;
+}
+
+.card{
+background:white;
+padding:30px;
+margin:20px 0;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+iframe{
+max-width:100%;
+border-radius:15px;
+margin-top:20px;
+}
+
+footer{
+background:#2F8F3A;
+color:white;
+padding:60px 20px;
+text-align:center;
+margin-top:60px;
+}
+
+.partner-logos{
+margin-top:20px;
+font-weight:bold;
+}
+
+.hidden{
+display:none;
+}
 </style>
 </head>
 
@@ -117,68 +188,92 @@ footer {
 <p id="result"></p>
 <button id="replay" class="hidden" onclick="restart()">Replay</button>
 <button id="verify" class="hidden" onclick="showAnswers()">Verifică răspunsurile</button>
+
+<div id="explanations"></div>
 </div>
 </section>
 
 <section id="advocacy">
 <h2>Advocacy</h2>
 
+<div class="card">
 <h3>Inițiative</h3>
-<p>Aici poți adăuga articole despre inițiative.</p>
+<p>Aici pot fi publicate articole despre inițiativele campaniei. Poți insera linkuri YouTube pentru a rula materiale video direct în platformă.</p>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+</div>
+
+<div class="card">
 <h3>Materiale</h3>
-<p>În curând materiale descărcabile.</p>
+<p>Materialele pot fi încărcate în repository și oferite gratuit pentru descărcare.</p>
+<a href="#" download><button>Descarcă material</button></a>
+</div>
+
 </section>
 
 <section id="educatie">
 <h2>Educație</h2>
-<h3>Solicită atelier de mediu</h3>
 
-<p>Atelier interactiv despre impactul poluării aerului și soluții practice pentru reducerea noxelor în comunitate.</p>
+<div class="card">
+<h3>Solicită atelier de mediu</h3>
+<p>Atelier interactiv despre impactul poluării aerului, efectele asupra sănătății și soluții concrete pentru reducerea emisiilor în comunitate.</p>
 
 <a href="mailto:home@parintideciresari.ro">
 <button>Solicită</button>
 </a>
+</div>
 </section>
 
 <section id="despre">
 <h2>Despre Noi</h2>
 
+<div class="card">
 <p>
-Asociația Părinți de Cireșari, înființată în iulie 2020, are ca misiune sprijinirea comunității locale prin proiecte dedicate educației, sănătății și protecției mediului.
+Asociația Părinți de Cireșari, înființată în iulie 2020, are ca misiune sprijinirea comunității locale prin proiecte dedicate educației, sănătății și protecției mediului. Activitatea sa promovează implicarea civică și dezvoltarea durabilă.
 </p>
 
 <p>
-Campania Oprește Motorul este prima inițiativă de mediu concepută și implementată de asociație în anul 2020.
+Campania Oprește Motorul este prima inițiativă de mediu concepută și implementată de asociație în anul 2020, fiind susținută prin implicarea comunității și ulterior prin microfinanțare obținută în cadrul unui concurs organizat de Asociația Ecopolis.
 </p>
+</div>
 </section>
 
 <footer>
 <h3>Instituții partenere</h3>
-<p>Primăria Sector 1 | Primăria Sector 2</p>
+<div class="partner-logos">
+Primăria Sector 1 | Primăria Sector 2
+</div>
 
-<h3>Organizații partenere</h3>
-<p>Platforma de Mediu pentru București | Ecopolis</p>
+<h3 style="margin-top:40px;">Organizații partenere</h3>
+<div class="partner-logos">
+Platforma de Mediu pentru București | Ecopolis
+</div>
 </footer>
 
 <script>
 const questions = [
-{q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.", a:true},
-{q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.", a:false},
-{q:"Poluarea aerului contribuie la 7% din totalul deceselor în România.", a:true},
-{q:"Cărțile sunt o sursă importantă de poluare.", a:false}
+{q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.",a:true,e:"Este considerată principalul risc de mediu pentru sănătate."},
+{q:"Persoanele în vârstă sunt cele mai afectate de poluarea aerului.",a:true,e:"Vârstnicii și copiii sunt cei mai vulnerabili."},
+{q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",a:false,e:"Sunt printre cele mai ridicate din Europa."},
+{q:"Poluarea aerului contribuie la 7% din totalul deceselor în România.",a:true,e:"Aproximativ 7% din decese sunt asociate poluării."},
+{q:"În București se pierd aproape 2 ani de viață din cauza poluării.",a:true,e:"Studiile arată o pierdere medie de aproape 2 ani."},
+{q:"România ocupă locul 8 în Europa la decese cauzate de poluare.",a:true,e:"Conform statisticilor europene."},
+{q:"În interiorul unei mașini este mai multă poluare decât în exterior.",a:true,e:"Poluanții rămân concentrați în habitaclu."},
+{q:"Particulele mai mari sunt cele mai periculoase.",a:false,e:"PM2.5 sunt cele mai periculoase."},
+{q:"Cărțile sunt o sursă de poluare a aerului.",a:false,e:"Sursele principale sunt traficul și arderea combustibililor."},
+{q:"Nivelul poluării poate fi urmărit online în România.",a:true,e:"Există platforme de monitorizare în timp real."}
 ];
 
-let current = 0;
-let score = 0;
+let current=0;
+let score=0;
 
 function loadQuestion(){
-document.getElementById("question").innerText = questions[current].q;
+document.getElementById("question").innerText=questions[current].q;
 document.getElementById("result").innerText="";
 }
 
 function answer(choice){
-if(choice === questions[current].a){
+if(choice===questions[current].a){
 score++;
 document.getElementById("result").innerText="Corect!";
 }else{
@@ -186,8 +281,8 @@ document.getElementById("result").innerText="Greșit!";
 }
 current++;
 
-if(current < questions.length){
-setTimeout(loadQuestion,1000);
+if(current<questions.length){
+setTimeout(loadQuestion,800);
 }else{
 document.getElementById("question").innerText="Game Over! Scor: "+score+"/"+questions.length;
 document.getElementById("replay").classList.remove("hidden");
@@ -200,11 +295,17 @@ current=0;
 score=0;
 document.getElementById("replay").classList.add("hidden");
 document.getElementById("verify").classList.add("hidden");
+document.getElementById("explanations").style.display="none";
 loadQuestion();
 }
 
 function showAnswers(){
-alert("Răspunsurile corecte sunt disponibile în documentația campaniei.");
+let container=document.getElementById("explanations");
+container.innerHTML="<h3>Răspunsuri corecte și explicații:</h3>";
+questions.forEach((item,index)=>{
+container.innerHTML+= "<p><strong>"+(index+1)+".</strong> "+item.e+"</p>";
+});
+container.style.display="block";
 }
 
 loadQuestion();
