@@ -8,8 +8,8 @@
 <style>
 body{
 margin:0;
-font-family:Arial, sans-serif;
-background:#6DBE45; /* iarba */
+font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(to bottom, #8ED081, #6DBE45);
 color:#1F3D2B;
 text-align:center;
 }
@@ -20,18 +20,6 @@ color:white;
 padding:40px;
 }
 
-nav{
-background:#5FB74C;
-padding:15px;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin:0 20px;
-font-weight:bold;
-}
-
 section{
 padding:60px 20px;
 max-width:1000px;
@@ -39,111 +27,110 @@ margin:auto;
 }
 
 #game{
-background:#F3FAF4;
-padding:40px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
+background:white;
+padding:50px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
+position:relative;
+overflow:hidden;
 }
 
-#road-container{
+#road-area{
 position:relative;
 height:350px;
 margin-top:40px;
 }
 
-/* Drumuri */
+/* Drum perspectivă */
 .road{
 position:absolute;
+bottom:0;
 width:40%;
-height:300px;
-background:#3B3B3B;
-border-radius:20px;
-top:20px;
+height:320px;
+background:#3C3C3C;
+clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
 cursor:pointer;
 transition:0.3s;
 }
 
 .road:hover{
-background:#4A4A4A;
+background:#4F4F4F;
 }
 
-/* Marcaje rutiere */
-.road::before{
-content:"";
-position:absolute;
-left:50%;
-top:10px;
-transform:translateX(-50%);
-width:6px;
-height:90%;
-background:repeating-linear-gradient(
-to bottom,
-white 0px,
-white 20px,
-transparent 20px,
-transparent 40px
-);
-}
-
-#road-left{
+#left-road{
 left:5%;
 }
 
-#road-right{
+#right-road{
 right:5%;
 }
 
-/* Text pe drum */
-.road span{
+/* Marcaje */
+.road::after{
+content:"";
 position:absolute;
-bottom:20px;
+left:50%;
+top:20px;
+transform:translateX(-50%);
+width:6px;
+height:85%;
+background:repeating-linear-gradient(
+to bottom,
+white 0px,
+white 25px,
+transparent 25px,
+transparent 50px
+);
+}
+
+/* Text jos */
+.label{
+position:absolute;
+bottom:15px;
 left:50%;
 transform:translateX(-50%);
 color:white;
-font-size:20px;
 font-weight:bold;
+font-size:18px;
 }
 
 /* Biciclist */
 #cyclist{
 position:absolute;
-top:140px;
+bottom:40px;
 left:50%;
 transform:translateX(-50%);
-font-size:45px;
-transition:all 0.6s ease;
+font-size:55px;
+transition:0.6s ease;
 }
 
-/* Butoane */
 button{
 padding:12px 25px;
 background:#E63E7B;
 color:white;
 border:none;
-border-radius:25px;
+border-radius:30px;
 cursor:pointer;
 margin-top:20px;
+font-size:15px;
 }
 
 button:hover{
 background:#C92D66;
 }
 
-.hidden{
-display:none;
-}
+.hidden{display:none;}
 
 #result{
 margin-top:20px;
 font-weight:bold;
-font-size:18px;
 }
 
 #explanations{
+display:none;
 text-align:left;
 margin-top:30px;
-display:none;
-background:white;
+background:#F3FAF4;
 padding:20px;
 border-radius:15px;
 }
@@ -157,12 +144,6 @@ border-radius:15px;
 <p>Inițiator: Asociația Părinți de Cireșari</p>
 </header>
 
-<nav>
-<a href="#">Advocacy</a>
-<a href="#">Educație</a>
-<a href="#">Despre noi</a>
-</nav>
-
 <section>
 
 <h2>Cât de multe știi despre poluarea aerului?</h2>
@@ -171,14 +152,14 @@ border-radius:15px;
 
 <p id="question"></p>
 
-<div id="road-container">
+<div id="road-area">
 
-<div id="road-left" class="road" onclick="answer(false)">
-<span>FALS</span>
+<div id="left-road" class="road" onclick="answer(false)">
+<div class="label">FALS</div>
 </div>
 
-<div id="road-right" class="road" onclick="answer(true)">
-<span>ADEVĂRAT</span>
+<div id="right-road" class="road" onclick="answer(true)">
+<div class="label">ADEVĂRAT</div>
 </div>
 
 <div id="cyclist">🚴‍♀️</div>
@@ -193,23 +174,12 @@ border-radius:15px;
 <div id="explanations"></div>
 
 </div>
-
 </section>
-
-<footer style="background:#2F8F3A;color:white;padding:40px;margin-top:60px;">
-<h3>Instituții partenere</h3>
-<p>Primăria Sector 1 | Primăria Sector 2</p>
-
-<h3 style="margin-top:30px;">Organizații partenere</h3>
-<p>Platforma de Mediu pentru București | Ecopolis</p>
-</footer>
 
 <script>
 const questions=[
-{q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.",a:true,e:"Este considerată principalul risc de mediu."},
-{q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",a:false,e:"Sunt printre cele mai ridicate."},
-{q:"Poluarea aerului contribuie la 7% din totalul deceselor în România.",a:true,e:"Aproximativ 7% din decese."},
-{q:"Particulele mai mari sunt cele mai periculoase.",a:false,e:"PM2.5 sunt cele mai periculoase."}
+{q:"Poluarea aerului contribuie la 7% din totalul deceselor în România.",a:true,e:"Aproximativ 7% dintre decese sunt asociate poluării."},
+{q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",a:false,e:"Sunt printre cele mai ridicate din Europa."}
 ];
 
 let current=0;
@@ -224,10 +194,10 @@ function answer(choice){
 
 let cyclist=document.getElementById("cyclist");
 
-if(choice===true){
-cyclist.style.left="75%";
+if(choice){
+cyclist.style.left="72%";
 }else{
-cyclist.style.left="25%";
+cyclist.style.left="28%";
 }
 
 if(choice===questions[current].a){
@@ -248,7 +218,7 @@ document.getElementById("question").innerText="Game Over! Scor: "+score+"/"+ques
 document.getElementById("replay").classList.remove("hidden");
 document.getElementById("verify").classList.remove("hidden");
 }
-},800);
+},700);
 }
 
 function restart(){
@@ -262,7 +232,7 @@ loadQuestion();
 
 function showAnswers(){
 let container=document.getElementById("explanations");
-container.innerHTML="<h3>Răspunsuri și explicații:</h3>";
+container.innerHTML="<h3>Explicații:</h3>";
 questions.forEach((item,index)=>{
 container.innerHTML+="<p><strong>"+(index+1)+".</strong> "+item.e+"</p>";
 });
