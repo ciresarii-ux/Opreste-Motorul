@@ -19,20 +19,23 @@ scroll-behavior:smooth;
 header{
 background:#2F8F3A;
 color:white;
-padding:30px 20px;
+padding:40px 20px;
 }
 
 .header-container{
 display:flex;
 align-items:center;
-justify-content:space-between;
 max-width:1100px;
 margin:auto;
 }
 
+.logo-ciresarii{
+height:80px;
+object-fit:contain;
+}
+
 .header-text{
-text-align:center;
-flex:1;
+margin-left:30px;
 }
 
 header h1{
@@ -43,11 +46,6 @@ font-size:38px;
 header p{
 margin-top:8px;
 font-size:16px;
-}
-
-.logo{
-height:70px;
-object-fit:contain;
 }
 
 /* ================= NAV ================= */
@@ -84,6 +82,15 @@ text-align:center;
 h2{
 font-size:30px;
 margin-bottom:30px;
+}
+
+/* Logo Opreste pe zona alba */
+
+.logo-opreste{
+height:90px;
+display:block;
+margin:0 auto 30px auto;
+object-fit:contain;
 }
 
 /* ================= GAME ================= */
@@ -216,11 +223,20 @@ opacity:0.95;
 
 .header-container{
 flex-direction:column;
-gap:15px;
+text-align:center;
 }
 
-.logo{
-height:55px;
+.header-text{
+margin-left:0;
+margin-top:15px;
+}
+
+.logo-ciresarii{
+height:70px;
+}
+
+.logo-opreste{
+height:70px;
 }
 
 #road{
@@ -240,16 +256,12 @@ text-align:center;
 
 <header>
 <div class="header-container">
-
-<img src="logo-opreste.png" class="logo">
+<img src="logo-ciresarii.png" class="logo-ciresarii">
 
 <div class="header-text">
 <h1>Campania Oprește Motorul</h1>
 <p>Inițiator: Asociația Părinți de Cireșari</p>
 </div>
-
-<img src="logo-ciresari.png" class="logo">
-
 </div>
 </header>
 
@@ -260,6 +272,9 @@ text-align:center;
 </nav>
 
 <section>
+
+<img src="logo-opreste.png" class="logo-opreste">
+
 <h2>Cât de multe știi despre poluarea aerului?</h2>
 
 <div id="game">
@@ -293,7 +308,7 @@ text-align:center;
 
 <div class="card">
 <h3>Inițiative</h3>
-<p>Aici pot fi publicate articole despre inițiativele campaniei. Poți insera materiale video YouTube direct în platformă.</p>
+<p>Aici pot fi publicate articole despre inițiativele campaniei.</p>
 
 <iframe width="560" height="315"
 src="https://www.youtube.com/embed/dQw4w9WgXcQ"
@@ -316,7 +331,7 @@ allowfullscreen>
 
 <div class="card">
 <h3>Solicită atelier de mediu</h3>
-<p>Atelier interactiv despre impactul poluării aerului, efectele asupra sănătății și soluții concrete pentru reducerea emisiilor în comunitate.</p>
+<p>Atelier interactiv despre impactul poluării aerului și soluții concrete pentru reducerea emisiilor.</p>
 
 <a href="mailto:home@parintideciresari.ro">
 <button>Solicită</button>
@@ -330,10 +345,6 @@ allowfullscreen>
 <div class="card">
 <p>
 Asociația Părinți de Cireșari, înființată în iulie 2020, are ca misiune sprijinirea comunității locale prin proiecte dedicate educației, sănătății și protecției mediului.
-</p>
-
-<p>
-Campania Oprește Motorul este prima inițiativă de mediu concepută și implementată de asociație în anul 2020.
 </p>
 </div>
 
@@ -350,7 +361,7 @@ Campania Oprește Motorul este prima inițiativă de mediu concepută și implem
 <h3 style="margin-top:40px;">Organizații partenere</h3>
 <div class="partners">
 <img src="logo-ecopolis.png">
-<img src="logo-directiademediu.png">
+<img src="logo-platformademediu.png">
 </div>
 
 </footer>
