@@ -23,7 +23,7 @@ text-align:center;
 
 header h1{
 margin:0;
-font-size:40px;
+font-size:42px;
 }
 
 header p{
@@ -37,13 +37,13 @@ justify-content:center;
 gap:50px;
 background:#5FB74C;
 padding:18px;
+flex-wrap:wrap;
 }
 
 nav a{
 color:white;
 text-decoration:none;
 font-weight:bold;
-font-size:16px;
 transition:0.3s;
 }
 
@@ -53,9 +53,9 @@ color:#E63E7B;
 
 section{
 padding:80px 20px;
-text-align:center;
 max-width:1000px;
 margin:auto;
+text-align:center;
 }
 
 h2{
@@ -84,33 +84,34 @@ background:white;
 padding:40px;
 border-radius:20px;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
-max-width:800px;
-margin:auto;
 }
 
-.choices{
+#road{
 display:flex;
-justify-content:center;
-gap:60px;
-margin-top:30px;
-flex-wrap:wrap;
+align-items:center;
+justify-content:space-between;
+margin-top:40px;
 }
 
-.choice{
-padding:25px;
+.side{
+width:40%;
 background:#F3FAF4;
-border:2px solid #5FB74C;
+border:3px solid #5FB74C;
+padding:40px 20px;
+border-radius:20px;
 cursor:pointer;
-width:180px;
-font-weight:bold;
-border-radius:15px;
 transition:0.3s;
 }
 
-.choice:hover{
+.side:hover{
 background:#E63E7B;
 color:white;
 border-color:#E63E7B;
+}
+
+#cyclist{
+font-size:70px;
+transition:transform 0.5s ease;
 }
 
 #result{
@@ -122,7 +123,7 @@ font-size:18px;
 #explanations{
 margin-top:30px;
 text-align:left;
-background:#ffffff;
+background:white;
 padding:30px;
 border-radius:15px;
 display:none;
@@ -150,13 +151,19 @@ text-align:center;
 margin-top:60px;
 }
 
-.partner-logos{
-margin-top:20px;
-font-weight:bold;
-}
-
 .hidden{
 display:none;
+}
+
+@media(max-width:768px){
+#road{
+flex-direction:column;
+gap:20px;
+}
+
+.side{
+width:80%;
+}
 }
 </style>
 </head>
@@ -178,18 +185,28 @@ display:none;
 <h2>Cât de multe știi despre poluarea aerului?</h2>
 
 <div id="game">
+
 <p id="question"></p>
 
-<div class="choices">
-<div class="choice" onclick="answer(true)">Adevărat</div>
-<div class="choice" onclick="answer(false)">Fals</div>
+<div id="road">
+<div class="side" onclick="answer(false)">
+<h3>Fals</h3>
+</div>
+
+<div id="cyclist">🚴</div>
+
+<div class="side" onclick="answer(true)">
+<h3>Adevărat</h3>
+</div>
 </div>
 
 <p id="result"></p>
+
 <button id="replay" class="hidden" onclick="restart()">Replay</button>
 <button id="verify" class="hidden" onclick="showAnswers()">Verifică răspunsurile</button>
 
 <div id="explanations"></div>
+
 </div>
 </section>
 
@@ -198,9 +215,12 @@ display:none;
 
 <div class="card">
 <h3>Inițiative</h3>
-<p>Aici pot fi publicate articole despre inițiativele campaniei. Poți insera linkuri YouTube pentru a rula materiale video direct în platformă.</p>
+<p>Aici pot fi publicate articole despre inițiativele campaniei. Poți insera materiale video YouTube direct în platformă.</p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+allowfullscreen>
+</iframe>
 </div>
 
 <div class="card">
@@ -229,29 +249,28 @@ display:none;
 
 <div class="card">
 <p>
-Asociația Părinți de Cireșari, înființată în iulie 2020, are ca misiune sprijinirea comunității locale prin proiecte dedicate educației, sănătății și protecției mediului. Activitatea sa promovează implicarea civică și dezvoltarea durabilă.
+Asociația Părinți de Cireșari, înființată în iulie 2020, are ca misiune sprijinirea comunității locale prin proiecte dedicate educației, sănătății și protecției mediului.
 </p>
 
 <p>
 Campania Oprește Motorul este prima inițiativă de mediu concepută și implementată de asociație în anul 2020, fiind susținută prin implicarea comunității și ulterior prin microfinanțare obținută în cadrul unui concurs organizat de Asociația Ecopolis.
 </p>
 </div>
+
 </section>
 
 <footer>
+
 <h3>Instituții partenere</h3>
-<div class="partner-logos">
-Primăria Sector 1 | Primăria Sector 2
-</div>
+<p>Primăria Sector 1 | Primăria Sector 2</p>
 
 <h3 style="margin-top:40px;">Organizații partenere</h3>
-<div class="partner-logos">
-Platforma de Mediu pentru București | Ecopolis
-</div>
+<p>Platforma de Mediu pentru București | Ecopolis</p>
+
 </footer>
 
 <script>
-const questions = [
+const questions=[
 {q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.",a:true,e:"Este considerată principalul risc de mediu pentru sănătate."},
 {q:"Persoanele în vârstă sunt cele mai afectate de poluarea aerului.",a:true,e:"Vârstnicii și copiii sunt cei mai vulnerabili."},
 {q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",a:false,e:"Sunt printre cele mai ridicate din Europa."},
@@ -259,8 +278,8 @@ const questions = [
 {q:"În București se pierd aproape 2 ani de viață din cauza poluării.",a:true,e:"Studiile arată o pierdere medie de aproape 2 ani."},
 {q:"România ocupă locul 8 în Europa la decese cauzate de poluare.",a:true,e:"Conform statisticilor europene."},
 {q:"În interiorul unei mașini este mai multă poluare decât în exterior.",a:true,e:"Poluanții rămân concentrați în habitaclu."},
-{q:"Particulele mai mari sunt cele mai periculoase.",a:false,e:"PM2.5 sunt cele mai periculoase."},
-{q:"Cărțile sunt o sursă de poluare a aerului.",a:false,e:"Sursele principale sunt traficul și arderea combustibililor."},
+{q:"Particulele mai mari sunt cele mai periculoase.",a:false,e:"PM2.5 sunt cele mai periculoase deoarece pătrund în plămâni."},
+{q:"Cărțile sunt o sursă de poluare a aerului.",a:false,e:"Principalele surse sunt traficul și arderea combustibililor."},
 {q:"Nivelul poluării poate fi urmărit online în România.",a:true,e:"Există platforme de monitorizare în timp real."}
 ];
 
@@ -273,21 +292,34 @@ document.getElementById("result").innerText="";
 }
 
 function answer(choice){
+
+let cyclist=document.getElementById("cyclist");
+
+if(choice===true){
+cyclist.style.transform="translateX(80px)";
+}else{
+cyclist.style.transform="translateX(-80px)";
+}
+
 if(choice===questions[current].a){
 score++;
 document.getElementById("result").innerText="Corect!";
 }else{
 document.getElementById("result").innerText="Greșit!";
 }
+
+setTimeout(()=>{
+cyclist.style.transform="translateX(0px)";
 current++;
 
 if(current<questions.length){
-setTimeout(loadQuestion,800);
+loadQuestion();
 }else{
 document.getElementById("question").innerText="Game Over! Scor: "+score+"/"+questions.length;
 document.getElementById("replay").classList.remove("hidden");
 document.getElementById("verify").classList.remove("hidden");
 }
+},600);
 }
 
 function restart(){
@@ -303,7 +335,7 @@ function showAnswers(){
 let container=document.getElementById("explanations");
 container.innerHTML="<h3>Răspunsuri corecte și explicații:</h3>";
 questions.forEach((item,index)=>{
-container.innerHTML+= "<p><strong>"+(index+1)+".</strong> "+item.e+"</p>";
+container.innerHTML+="<p><strong>"+(index+1)+".</strong> "+item.e+"</p>";
 });
 container.style.display="block";
 }
