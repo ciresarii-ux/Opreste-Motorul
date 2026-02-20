@@ -23,22 +23,38 @@ nav a:hover{color:#E63E7B}
 section{padding:80px 20px;max-width:1100px;margin:auto}
 
 /* GAME */
-.game-layout{display:flex;align-items:center;gap:60px}
-.game-logo img{height:200px;object-fit:contain}
-.game-content{flex:1;text-align:center}
+<section>
+<div class="game-layout">
 
-#game{background:white;padding:40px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
-#road{display:flex;align-items:center;justify-content:center;gap:40px;margin-top:40px}
+<div class="game-logo">
+<img src="logo-opreste.png">
+</div>
 
-.side{min-width:130px;background:white;border:2px solid #5FB74C;padding:12px 22px;border-radius:40px;cursor:pointer;transition:.25s}
-.side:hover{background:#E63E7B;color:white;border-color:#E63E7B}
+<div class="game-content">
 
-#cyclist{font-size:55px;transition:.5s}
+<h2>Cât de multe știi despre poluarea aerului?</h2>
 
-button{padding:10px 22px;background:#E63E7B;color:white;border:none;cursor:pointer;margin:10px;border-radius:30px}
-.hidden{display:none}
+<div id="game">
+<p id="question"></p>
 
-#explanations{margin-top:20px;display:none;text-align:left;background:white;padding:20px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,.08)}
+<div id="road">
+<div class="side" onclick="answer(false)">Fals</div>
+<div id="cyclist">🚴</div>
+<div class="side" onclick="answer(true)">Adevărat</div>
+</div>
+
+<p id="result"></p>
+
+<button id="replay" class="hidden" onclick="restart()">Replay</button>
+<button id="verify" class="hidden" onclick="showAnswers()">Verifică răspunsurile</button>
+
+<div id="explanations"></div>
+</div>
+
+</div>
+</div>
+</section>
+
 
 /* ADVOCACY */
 .adv-item{background:white;padding:30px;margin:40px 0;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08);text-align:left}
@@ -72,6 +88,126 @@ footer{background:#2F8F3A;color:white;padding:60px 20px;text-align:center;margin
 }
 </style>
 </head>
+<script>
+const questions=[
+{
+q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.",
+a:true,
+e:"Este considerată principalul risc de mediu pentru sănătate."
+},
+{
+q:"Persoanele în vârstă sunt cele mai afectate de poluarea aerului.",
+a:true,
+e:"Vârstnicii și copiii sunt cei mai vulnerabili."
+},
+{
+q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",
+a:false,
+e:"Sunt printre cele mai ridicate din Europa."
+},
+{
+q:"În București se pierd aproape 2 ani de viață din cauza poluării.",
+a:true,
+e:"Studiile arată o pierdere medie de aproape 2 ani."
+},
+{
+q:"Particulele mai mari sunt cele mai periculoase.",
+a:false,
+e:"PM2.5 sunt cele mai periculoase deoarece pătrund adânc în plămâni."
+},
+{
+q:"Dimineața trebuie să încălzesc 5–10 minute motorul înainte de a porni în trafic, mai ales iarna.",
+a:false,
+e:"Testele arată că sunt suficiente aproximativ 60 de secunde la ralanti pentru a circula uleiul de motor înainte de a putea conduce în zilele reci."
+},
+{
+q:"Este frig afară, trebuie să las motorul pornit pentru a menține cald în mașină.",
+a:false,
+e:"Dacă oprești motorul când staționezi și menții contactul pus, încălzirea poate menține o temperatură decentă până la 15 minute."
+},
+{
+q:"Sunt protejat de poluarea aerului dacă rămân în interiorul mașinii.",
+a:false,
+e:"Potrivit unor studii, expunerea la poluanți auto este adesea mai mare în interiorul mașinii decât la marginea drumului."
+},
+{
+q:"Oprind și repornind motorul, îmi voi strica mașina.",
+a:false,
+e:"Staționarea cu motorul pornit la ralanti poate afecta sistemele de filtrare și regenerare. În anumite condiții, procesul de regenerare la ralanti poate duce la probleme tehnice."
+},
+{
+q:"Aproximativ 1 din 5 șoferi recunoaște că lasă motorul pornit atunci când staționează.",
+a:true,
+e:"Studiile arată că aproximativ 22% dintre șoferi admit că lasă motorul pornit atunci când mașina este oprită. Restul… probabil doar nu recunosc. Indiferent de procent, staționarea cu motorul pornit contribuie la poluare și consum inutil de combustibil."
+}
+];
+
+
+let current=0;
+let score=0;
+let userAnswers=[];
+
+function loadQuestion(){
+document.getElementById("question").innerText=questions[current].q;
+document.getElementById("result").innerText="";
+}
+
+function answer(choice){
+let cyclist=document.getElementById("cyclist");
+
+cyclist.style.transform=choice?"translateX(60px)":"translateX(-60px)";
+
+userAnswers.push(choice);
+
+if(choice===questions[current].a){
+score++;
+document.getElementById("result").innerText="Corect!";
+}else{
+document.getElementById("result").innerText="Greșit!";
+}
+
+setTimeout(()=>{
+cyclist.style.transform="translateX(0px)";
+current++;
+
+if(current<questions.length){
+loadQuestion();
+}else{
+document.getElementById("question").innerText="Game Over! Scor: "+score+"/"+questions.length;
+document.getElementById("replay").classList.remove("hidden");
+document.getElementById("verify").classList.remove("hidden");
+}
+},600);
+}
+
+function restart(){
+current=0;
+score=0;
+userAnswers=[];
+document.getElementById("replay").classList.add("hidden");
+document.getElementById("verify").classList.add("hidden");
+document.getElementById("explanations").style.display="none";
+loadQuestion();
+}
+
+function showAnswers(){
+let container=document.getElementById("explanations");
+container.innerHTML="<h3>Răspunsuri corecte și explicații:</h3>";
+
+questions.forEach((item,index)=>{
+container.innerHTML+=
+"<p><strong>"+(index+1)+".</strong> "+item.q+
+"<br><em>"+item.e+"</em></p><hr>";
+});
+
+container.style.display="block";
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>
 
 <body>
 
