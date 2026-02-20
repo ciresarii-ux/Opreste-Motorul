@@ -137,7 +137,7 @@ padding:20px;
 border-radius:15px;
 }
 
-/* ADVOCACY */
+/* ADVOCACY — FIX IMPORTANT */
 
 .adv-item{
 background:white;
@@ -148,16 +148,24 @@ box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
 .adv-gallery{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
 margin-top:20px;
 }
 
 .adv-gallery img{
-max-width:260px;
 width:100%;
-border-radius:12px;
+height:220px;
+object-fit:cover;
+border-radius:14px;
+box-shadow:0 6px 18px rgba(0,0,0,0.12);
+transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.adv-gallery img:hover{
+transform:scale(1.04);
+box-shadow:0 12px 28px rgba(0,0,0,0.18);
 }
 
 .adv-video iframe{
@@ -292,7 +300,7 @@ border-radius:12px;
 
 <div class="adv-item">
 <h3>A. Cum a început campania Oprește Motorul</h3>
-<p>În 2020, 300 de mame din cartierul Grivița-Domenii făceau chetă pentru a printa și distribui afiise.</p>
+<p>În 2020, 300 de mame din cartierul Grivița-Domenii făceau chetă pentru a printa și distribui afișe cu mesajul „Oprește Motorul”.</p>
 <div class="adv-gallery">
 <img src="advocacya1.jpeg">
 </div>
@@ -300,6 +308,7 @@ border-radius:12px;
 
 <div class="adv-item">
 <h3>B. Întâlnire Primar Sector 6</h3>
+<p>Primăria Sectorului 6 a fost prima instituție care a adoptat campania, trecând rapid proiectul de HCL prin Consiliul Local.</p>
 <div class="adv-gallery">
 <img src="advocacyb1.jpeg">
 <img src="advocacyb2.jpeg">
@@ -309,6 +318,7 @@ border-radius:12px;
 
 <div class="adv-item">
 <h3>C. Campanie în școli</h3>
+<p>Împreună cu Ecopolis, am ajuns în peste 50 de școli din București cu panouri informative despre poluarea aerului.</p>
 <div class="adv-gallery">
 <img src="advocacyc1.jpeg">
 <img src="advocacyc2.jpeg">
@@ -318,6 +328,7 @@ border-radius:12px;
 
 <div class="adv-item">
 <h3>D. Cetățeni pentru Aer Curat</h3>
+<p>Festival stradal comunitar și dezbatere publică pe tema poluării aerului.</p>
 <div class="adv-gallery">
 <img src="advocacyd1.jpg">
 <img src="advocacyd2.jpeg">
@@ -327,6 +338,7 @@ border-radius:12px;
 
 <div class="adv-item">
 <h3>E. Campanie TikTok #CocalAir</h3>
+<p>Campanie cu situații reale de staționare cu motorul pornit.</p>
 <div class="adv-gallery">
 <img src="advocacye1.jpeg">
 <img src="advocacye2.jpeg">
@@ -336,6 +348,7 @@ border-radius:12px;
 
 <div class="adv-item">
 <h3>F. Campanie media</h3>
+<p>Apariții media care au susținut mesajul campaniei.</p>
 <div class="adv-gallery">
 <img src="advocacyf1.jpeg">
 <img src="advocacyf2.jpeg">
@@ -344,113 +357,13 @@ border-radius:12px;
 
 <div class="adv-item">
 <h3>G. Campania Copiilor din Cartier</h3>
+<p>Material video realizat integral de copii.</p>
 <div class="adv-video">
 <iframe src="https://www.youtube.com/embed/qGrkQ-K-CsQ" allowfullscreen></iframe>
 </div>
 </div>
 
-<div class="adv-item">
-<h3>H. Depunere la Senat</h3>
-<div class="adv-gallery">
-<img src="advocacyh1.jpeg">
-<img src="advocacyh2.jpeg">
-</div>
-</div>
-
-<div class="adv-item">
-<h3>I. Luări de cuvânt în ședințe parlamentare</h3>
-<div class="adv-gallery">
-<img src="advocacyi1.jpeg">
-<img src="advocacyi2.jpeg">
-<img src="advocacyi3.jpeg">
-</div>
-</div>
-
-<div class="adv-item">
-<h3>J. Campania Ce Spun Copiii</h3>
-<div class="adv-video-grid">
-<iframe src="https://www.youtube.com/embed/erXLmehQDLY"></iframe>
-<iframe src="https://www.youtube.com/embed/e1lwmraLAa4"></iframe>
-<iframe src="https://www.youtube.com/embed/wTIWSl-vvOs"></iframe>
-<iframe src="https://www.youtube.com/embed/Fvs_t--5iRw"></iframe>
-</div>
-</div>
-
-<div class="adv-item">
-<h3>K. Proiect HCL Sector 1</h3>
-<div class="adv-gallery">
-<img src="advocacyk1.jpeg">
-<img src="advocacyk2.jpeg">
-<img src="advocacyk3.jpeg">
-</div>
-</div>
-
-<div class="adv-item">
-<h3>L. Proiect HCL Sector 2</h3>
-<div class="adv-gallery">
-<img src="advocacyl1.jpeg">
-</div>
-</div>
-
-<div class="adv-item">
-<h3>M. Proiect CGMB</h3>
-<p>To be continued…</p>
-</div>
-
 </section>
-
-<!-- EDUCATIE -->
-<section id="educatie">
-<h2>Atelier educațional</h2>
-
-<div class="atelier-container">
-
-<div>
-<img src="workshop1.jpg" class="atelier-img">
-<img src="workshop3.jpeg" class="atelier-img">
-</div>
-
-<div>
-<img src="workshop2.jpg" class="atelier-img">
-<img src="workshop4.jpeg" class="atelier-img">
-
-<p>Pentru programări:</p>
-<a href="mailto:home@parintideciresari.ro" class="email-link">
-home@parintideciresari.ro
-</a>
-
-</div>
-
-</div>
-</section>
-
-<!-- DESPRE -->
-<section id="despre">
-<h2>Despre noi</h2>
-
-<div style="background:white;padding:40px;border-radius:20px;line-height:1.7;">
-<p>
-Asociația Părinți de Cireșari, înființată în iulie 2020, are ca misiune sprijinirea comunității locale prin proiecte dedicate educației, sănătății și protecției mediului.
-</p>
-<p>
-Campania Oprește Motorul este prima inițiativă de mediu concepută și implementată de asociație în anul 2020.
-</p>
-</div>
-</section>
-
-<footer>
-<h3>Instituții partenere</h3>
-<div class="partners">
-<img src="logo-ps1.png">
-<img src="logo-pmb.png">
-</div>
-
-<h3 style="margin-top:40px;">Organizații partenere</h3>
-<div class="partners">
-<img src="logo-ecopolis.png">
-<img src="logo-platformademediu.png">
-</div>
-</footer>
 
 <script>
 const questions=[
@@ -466,7 +379,7 @@ const questions=[
 {q:"Aproximativ 1 din 5 șoferi recunoaște că lasă motorul pornit la staționare.",a:true,e:"Circa 22% recunosc. Restul… probabil doar nu recunosc."}
 ];
 
-let current=0,score=0,userAnswers=[];
+let current=0,score=0;
 
 function loadQuestion(){
 question.innerText=questions[current].q;
@@ -475,11 +388,8 @@ result.innerText="";
 
 function answer(choice){
 cyclist.style.transform=choice?"translateX(60px)":"translateX(-60px)";
-userAnswers.push(choice);
-
 if(choice===questions[current].a){score++;result.innerText="Corect!";}
 else{result.innerText="Greșit!";}
-
 setTimeout(()=>{
 cyclist.style.transform="translateX(0)";
 current++;
@@ -493,7 +403,7 @@ verify.classList.remove("hidden");
 }
 
 function restart(){
-current=0;score=0;userAnswers=[];
+current=0;score=0;
 replay.classList.add("hidden");
 verify.classList.add("hidden");
 explanations.style.display="none";
@@ -503,7 +413,7 @@ loadQuestion();
 function showAnswers(){
 explanations.innerHTML="<h3>Răspunsuri și explicații:</h3>";
 questions.forEach((q,i)=>{
-explanations.innerHTML+=`<p><strong>${i+1}.</strong> ${q.q}<br><em>${q.e}</em></p><hr>`;
+explanations.innerHTML+=`<p><strong>${i+1}.</strong> ${q.e}</p>`;
 });
 explanations.style.display="block";
 }
