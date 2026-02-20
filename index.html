@@ -6,279 +6,69 @@
 <title>Oprește Motorul</title>
 
 <style>
-body{
-margin:0;
-font-family: Arial, sans-serif;
-background:#F3FAF4;
-color:#1F3D2B;
-scroll-behavior:smooth;
-}
+body{margin:0;font-family:Arial,sans-serif;background:#F3FAF4;color:#1F3D2B;scroll-behavior:smooth}
 
-/* ================= HEADER ================= */
+/* HEADER */
+header{background:#2F8F3A;color:white;padding:40px 20px}
+.header-container{display:flex;align-items:center;justify-content:center;max-width:1100px;margin:auto;position:relative}
+.logo-ciresarii{position:absolute;left:0;height:80px;object-fit:contain}
+header h1{margin:0;font-size:36px}
+header p{margin-top:8px;font-size:16px}
 
-header{
-background:#2F8F3A;
-color:white;
-padding:40px 20px;
-}
+/* NAV */
+nav{display:flex;justify-content:center;gap:50px;background:#5FB74C;padding:18px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-weight:bold}
+nav a:hover{color:#E63E7B}
 
-.header-container{
-display:flex;
-align-items:center;
-justify-content:center;
-max-width:1100px;
-margin:auto;
-position:relative;
-}
+section{padding:80px 20px;max-width:1100px;margin:auto}
 
-.logo-ciresarii{
-position:absolute;
-left:0;
-height:80px;
-object-fit:contain;
-}
+/* GAME */
+.game-layout{display:flex;align-items:center;gap:60px}
+.game-logo img{height:200px;object-fit:contain}
+.game-content{flex:1;text-align:center}
 
-header h1{margin:0;font-size:36px;}
-header p{margin-top:8px;font-size:16px;}
+#game{background:white;padding:40px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+#road{display:flex;align-items:center;justify-content:center;gap:40px;margin-top:40px}
 
-/* ================= NAV ================= */
+.side{min-width:130px;background:white;border:2px solid #5FB74C;padding:12px 22px;border-radius:40px;cursor:pointer;transition:.25s}
+.side:hover{background:#E63E7B;color:white;border-color:#E63E7B}
 
-nav{
-display:flex;
-justify-content:center;
-gap:50px;
-background:#5FB74C;
-padding:18px;
-flex-wrap:wrap;
-}
+#cyclist{font-size:55px;transition:.5s}
 
-nav a{
-color:white;
-text-decoration:none;
-font-weight:bold;
-transition:0.3s;
-}
+button{padding:10px 22px;background:#E63E7B;color:white;border:none;cursor:pointer;margin:10px;border-radius:30px}
+.hidden{display:none}
 
-nav a:hover{color:#E63E7B;}
+#explanations{margin-top:20px;display:none;text-align:left;background:white;padding:20px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,.08)}
 
-/* ================= SECTION ================= */
+/* ADVOCACY */
+.adv-item{background:white;padding:30px;margin:40px 0;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08);text-align:left}
+.adv-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:20px}
+.adv-gallery img{width:100%;height:240px;object-fit:cover;border-radius:14px}
+.adv-video{width:100%;aspect-ratio:16/9;border-radius:14px;margin-top:20px;border:0}
 
-section{
-padding:80px 20px;
-max-width:1100px;
-margin:auto;
-}
+/* WORKSHOP */
+.atelier-container{display:flex;gap:80px;margin-top:40px}
+.atelier-col-left,.atelier-col-right{flex:1}
 
-/* ================= GAME ================= */
+.atelier-title{color:#3E5EB9;font-size:36px;margin-bottom:0}
+.atelier-sub{color:#E67E22;font-size:30px;margin-top:5px}
+.atelier-questions{color:#3E5EB9;font-size:20px;line-height:1.8;margin-bottom:30px}
+.atelier-text{color:#3E5EB9;font-size:17px;line-height:1.6;margin:20px 0}
 
-.game-layout{
-display:flex;
-align-items:center;
-gap:60px;
-}
+.atelier-img{width:100%;max-height:400px;object-fit:cover;border-radius:15px;margin:20px 0;box-shadow:0 8px 25px rgba(0,0,0,.1)}
 
-.game-logo img{
-height:200px;
-object-fit:contain;
-}
+.email-link{color:#E63E7B;font-weight:bold;text-decoration:none;font-size:18px}
+.email-link:hover{text-decoration:underline}
 
-.game-content{
-flex:1;
-text-align:center;
-}
-
-h2{
-font-size:28px;
-margin-bottom:30px;
-}
-
-#game{
-background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
-
-#road{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:40px;
-margin-top:40px;
-}
-
-.side{
-min-width:130px;
-background:white;
-border:2px solid #5FB74C;
-padding:12px 22px;
-border-radius:40px;
-cursor:pointer;
-transition:0.25s ease;
-box-shadow:0 4px 12px rgba(0,0,0,0.05);
-}
-
-.side:hover{
-background:#E63E7B;
-color:white;
-border-color:#E63E7B;
-transform:translateY(-3px);
-}
-
-#cyclist{
-font-size:55px;
-transition:transform 0.5s ease;
-}
-
-button{
-padding:10px 22px;
-background:#E63E7B;
-color:white;
-border:none;
-cursor:pointer;
-margin:10px;
-font-size:14px;
-border-radius:30px;
-transition:0.3s;
-}
-
-button:hover{background:#C92D66;}
-
-.hidden{display:none;}
-
-#explanations{
-margin-top:20px;
-display:none;
-text-align:left;
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
-}
-
-/* ================= ADVOCACY ================= */
-
-.adv-item{
-background:white;
-padding:30px;
-margin:40px 0;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-text-align:left;
-}
-
-.adv-gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
-margin-top:20px;
-}
-
-.adv-gallery img{
-width:100%;
-height:240px;
-object-fit:cover;
-border-radius:14px;
-box-shadow:0 6px 18px rgba(0,0,0,0.15);
-}
-
-.adv-video{
-width:100%;
-aspect-ratio:16/9;
-border-radius:14px;
-margin-top:20px;
-}
-
-/* ================= WORKSHOP ================= */
-
-.atelier-container{
-display:flex;
-gap:80px;
-margin-top:40px;
-}
-
-.atelier-col-left,
-.atelier-col-right{
-flex:1;
-}
-
-.atelier-title{
-color:#3E5EB9;
-font-size:36px;
-margin-bottom:0;
-}
-
-.atelier-sub{
-color:#E67E22;
-font-size:30px;
-margin-top:5px;
-}
-
-.atelier-questions{
-color:#3E5EB9;
-font-size:20px;
-line-height:1.8;
-margin-bottom:30px;
-}
-
-.atelier-text{
-color:#3E5EB9;
-font-size:17px;
-line-height:1.6;
-margin:20px 0;
-}
-
-.atelier-img{
-width:100%;
-max-height:400px;
-object-fit:cover;
-border-radius:15px;
-margin:20px 0;
-box-shadow:0 8px 25px rgba(0,0,0,0.1);
-}
-
-.email-link{
-color:#E63E7B;
-font-weight:bold;
-text-decoration:none;
-font-size:18px;
-}
-
-.email-link:hover{text-decoration:underline;}
-
-/* ================= FOOTER ================= */
-
-footer{
-background:#2F8F3A;
-color:white;
-padding:60px 20px;
-text-align:center;
-margin-top:80px;
-}
-
-.partners{
-display:flex;
-justify-content:center;
-gap:40px;
-flex-wrap:wrap;
-margin-top:20px;
-}
-
-.partners img{
-height:65px;
-object-fit:contain;
-background:white;
-padding:10px 15px;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.15);
-}
-
-/* ================= MOBILE ================= */
+/* FOOTER */
+footer{background:#2F8F3A;color:white;padding:60px 20px;text-align:center;margin-top:80px}
+.partners{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:20px}
+.partners img{height:65px;object-fit:contain;background:white;padding:10px 15px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
 
 @media(max-width:900px){
-.game-layout{flex-direction:column;}
-.atelier-container{flex-direction:column;}
-.logo-ciresarii{position:static;margin-bottom:20px;}
+.game-layout{flex-direction:column}
+.atelier-container{flex-direction:column}
+.logo-ciresarii{position:static;margin-bottom:20px}
 }
 </style>
 </head>
@@ -301,22 +91,62 @@ box-shadow:0 4px 12px rgba(0,0,0,0.15);
 <a href="#despre">Despre noi</a>
 </nav>
 
+<!-- ================= GAME ================= -->
+
+<section>
+<div class="game-layout">
+
+<div class="game-logo">
+<img src="logo-opreste.png">
+</div>
+
+<div class="game-content">
+<h2>Cât de multe știi despre poluarea aerului?</h2>
+
+<div id="game">
+<p id="question"></p>
+
+<div id="road">
+<div class="side" onclick="answer(false)">Fals</div>
+<div id="cyclist">🚴</div>
+<div class="side" onclick="answer(true)">Adevărat</div>
+</div>
+
+<p id="result"></p>
+<button id="replay" class="hidden" onclick="restart()">Replay</button>
+<button id="verify" class="hidden" onclick="showAnswers()">Verifică răspunsurile</button>
+<div id="explanations"></div>
+</div>
+</div>
+</div>
+</section>
+
 <!-- ================= ADVOCACY ================= -->
 
 <section id="advocacy">
 <h2>Advocacy</h2>
 
+<!-- A -->
 <div class="adv-item">
 <h3>A. Cum a început campania Oprește Motorul</h3>
-<p>În 2020, 300 de mame din cartierul Grivița-Domenii făceau chetă pentru a printa și distribui afișe cu mesajul „Oprește Motorul”. A fost un efort comun și continuu, implicarea lor fiind prezentă și azi.</p>
+<p>
+În 2020, 300 de mame din cartierul Grivița-Domenii făceau chetă pentru a printa și distribui afiise cu mesajul „Oprește Motorul”.
+A fost un efort comun și continuu, implicarea lor fiind prezentă și azi.
+</p>
 <div class="adv-gallery">
 <img src="advocacya1.jpeg">
 </div>
 </div>
 
+<!-- B -->
 <div class="adv-item">
 <h3>B. Întâlnire Primar Sector 6</h3>
-<p>Primăria Sectorului 6 a fost prima instituție ce a adoptat campania...</p>
+<p>
+Primăria Sectorului 6 a fost prima instituție ce a adoptat campania, trecând în timp record proiectul de HCL prin Consiliul Local,
+toate unitățile de învățământ având în dreptul lor câte un panou metalic, de informare, cu grafica Oprește Motorul.
+La ședință au participat Elena Lucaci (Părinți de Cireșari), Oana Neneciu (Ecopolis), Ciprian Ciucu și reprezentanți ai aparatului administrativ
+cât și șeful Poliției Locale S6.
+</p>
 <div class="adv-gallery">
 <img src="advocacyb1.jpeg">
 <img src="advocacyb2.jpeg">
@@ -324,9 +154,13 @@ box-shadow:0 4px 12px rgba(0,0,0,0.15);
 </div>
 </div>
 
+<!-- C -->
 <div class="adv-item">
 <h3>C. Campanie în școli</h3>
-<p>Împreună cu Ecopolis, am ajuns în peste 50 de școli din București...</p>
+<p>
+Împreună cu Ecopolis, am ajuns în peste 50 de școli din București cu panouri informative privind poluarea aerului,
+ambasadorii campaniei fiind elevii școlilor.
+</p>
 <div class="adv-gallery">
 <img src="advocacyc1.jpeg">
 <img src="advocacyc2.jpeg">
@@ -334,4 +168,131 @@ box-shadow:0 4px 12px rgba(0,0,0,0.15);
 </div>
 </div>
 
+<!-- D -->
+<div class="adv-item">
+<h3>D. Cetățeni pentru Aer Curat</h3>
+<p>
+În cadrul proiectului Cetățeni Pentru Aer Curat implementat de Ecopolis, Părinți de Cireșari a organizat un festival stradal comunitar
+având ca temă poluarea aerului. La eveniment a avut loc o dezbatere publică pe tema poluării la care au participat Consilieri Generali,
+dna. dr. Beatrice Mahler, Primarul Sectorului 1 George Tuță și reprezentanți ai societății civile.
+La eveniment am realizat un experiment ce ne arată câți metri cubi de noxe se adună într-un sac din țeava de eșapament a unei mașini la ralanti.
+</p>
+<div class="adv-gallery">
+<img src="advocacyd1.jpg">
+<img src="advocacyd2.jpeg">
+<img src="advocacyd3.jpg">
+</div>
+</div>
+
+<!-- E -->
+<div class="adv-item">
+<h3>E. Campanie TikTok #CocalAir</h3>
+<p>
+O campanie cu situații în care se staționează cu motorul pornit, imagini generate cu AI, în urma comentariilor primite pe TikTok.
+</p>
+<div class="adv-gallery">
+<img src="advocacye1.jpeg">
+<img src="advocacye2.jpeg">
+<img src="advocacye3.jpeg">
+</div>
+</div>
+
+<!-- F -->
+<div class="adv-item">
+<h3>F. Campanie media</h3>
+<div class="adv-gallery">
+<img src="advocacyf1.jpeg">
+<img src="advocacyf2.jpeg">
+</div>
+</div>
+
+<!-- G -->
+<div class="adv-item">
+<h3>G. Campania Copiilor din Cartier</h3>
+<p>
+Mai mulți copii din cartier au construit un proiect propriu Oprește Motorul.
+Un material video pregătit de ei în totalitate: text, filmare, montaj.
+</p>
+<iframe class="adv-video" src="https://www.youtube.com/embed/qGrkQ-K-CsQ" allowfullscreen></iframe>
+</div>
+
+<!-- H -->
+<div class="adv-item">
+<h3>H. Depunere la Senat a proiectului de modificare a codului rutier</h3>
+<p>
+Părinți de Cireșari și Ecopolis, prin Dragoș Popescu senator independent, au depus proiectul de modificare a codului rutier
+ce prevede interzicerea staționării (peste 5 minute) cu motorul termic pornit.
+Proiectul a trecut tacit de Senatul României și a primit sprijinul Guvernului Ciolacu,
+însă odată cu noile alegeri parlamentare acesta s-a pierdut.
+</p>
+<div class="adv-gallery">
+<img src="advocacyh1.jpeg">
+<img src="advocacyh2.jpeg">
+</div>
+</div>
+
+<!-- I -->
+<div class="adv-item">
+<h3>I. Luări de cuvânt în ședințe parlamentare</h3>
+<p>
+În tot acest timp am participat și am susținut proiectul Oprește Motorul la toate ședințele comisiei de mediu.
+</p>
+<div class="adv-gallery">
+<img src="advocacyi1.jpeg">
+<img src="advocacyi2.jpeg">
+<img src="advocacyi3.jpeg">
+</div>
+</div>
+
+<!-- J -->
+<div class="adv-item">
+<h3>J. Campania Ce Spun Copiii</h3>
+<p>
+O serie jucăușă despre părerea sinceră a copiilor despre ce cred ei că fac oamenii atunci când staționează.
+</p>
+
+<iframe class="adv-video" src="https://www.youtube.com/embed/erXLmehQDLY" allowfullscreen></iframe>
+<iframe class="adv-video" src="https://www.youtube.com/embed/e1lwmraLAa4" allowfullscreen></iframe>
+<iframe class="adv-video" src="https://www.youtube.com/embed/wTIWSl-vvOs" allowfullscreen></iframe>
+<iframe class="adv-video" src="https://www.youtube.com/embed/Fvs_t--5iRw" allowfullscreen></iframe>
+</div>
+
+<!-- K -->
+<div class="adv-item">
+<h3>K. Proiect de HCL la Sectorul 1</h3>
+<p>
+Primăria Sectorului 1 a preluat campania Oprește Motorul adoptând un proiect de hotărâre de consiliu local,
+iar toate unitățile de învățământ din Sectorul 1 au în acest moment câte un panou ce informează șoferii
+să-și oprească motorul când staționează, pentru sănătatea copiilor.
+</p>
+<div class="adv-gallery">
+<img src="advocacyk1.jpeg">
+<img src="advocacyk2.jpeg">
+<img src="advocacyk3.jpeg">
+</div>
+</div>
+
+<!-- L -->
+<div class="adv-item">
+<h3>L. Proiect de HCL la Sectorul 2</h3>
+<p>
+Consilierul Local Andrei Tăndraș a preluat inițiativa Oprește Motorul în vederea implementării acestui proiect
+prin instalarea de panouri informative. Am luat cuvântul la această ședință iar proiectul a trecut cu majoritate de voturi.
+</p>
+<div class="adv-gallery">
+<img src="advocacyl1.jpeg">
+</div>
+</div>
+
+<!-- M -->
+<div class="adv-item">
+<h3>M. Forma finală de Proiect de Hotărâre CGMB</h3>
+<p>
+În acest moment avem o formă finală de Proiect de Hotărâre de Consiliu General,
+realizată în colaborare cu Bogdan Sabo, Consilier General și Direcția de Mediu PMB.
+<strong>To be continued…</strong>
+</p>
+</div>
+
 </section>
+
