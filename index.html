@@ -7,206 +7,203 @@
 
 <style>
 body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#F3FAF4;
-color:#1F3D2B;
-scroll-behavior:smooth;
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#F3FAF4;
+  color:#1F3D2B;
+  scroll-behavior:smooth;
 }
 
 /* HEADER */
 header{
-background:#2F8F3A;
-color:white;
-padding:40px 20px;
+  background:#2F8F3A;
+  color:white;
+  padding:40px 20px;
 }
+
 .header-container{
-display:flex;
-align-items:center;
-justify-content:center;
-max-width:1100px;
-margin:auto;
-position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  max-width:1100px;
+  margin:auto;
+  position:relative;
 }
+
 .logo-ciresarii{
-position:absolute;
-left:0;
-height:80px;
-object-fit:contain;
+  position:absolute;
+  left:0;
+  height:80px;
+  object-fit:contain;
 }
+
 header h1{margin:0;font-size:36px;}
 header p{margin-top:8px;font-size:16px;}
 
 /* NAV */
 nav{
-display:flex;
-justify-content:center;
-gap:50px;
-background:#5FB74C;
-padding:18px;
-flex-wrap:wrap;
+  display:flex;
+  justify-content:center;
+  gap:50px;
+  background:#5FB74C;
+  padding:18px;
+  flex-wrap:wrap;
 }
+
 nav a{
-color:white;
-text-decoration:none;
-font-weight:bold;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
 }
+
 nav a:hover{color:#E63E7B;}
 
 section{
-padding:80px 20px;
-max-width:1100px;
-margin:auto;
+  padding:80px 20px;
+  max-width:1100px;
+  margin:auto;
 }
 
 /* GAME */
 .game-layout{
-display:flex;
-align-items:center;
-gap:60px;
+  display:flex;
+  align-items:center;
+  gap:60px;
 }
+
 .game-logo img{height:200px;}
 .game-content{text-align:center;flex:1;}
 
 #game{
-background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
 #road{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:40px;
-margin-top:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:40px;
+  margin-top:40px;
 }
 
 .side{
-min-width:130px;
-background:white;
-border:2px solid #5FB74C;
-padding:12px 22px;
-border-radius:40px;
-cursor:pointer;
-font-weight:bold;
-transition:.25s;
-}
-.side:hover{
-background:#E63E7B;
-color:white;
-border-color:#E63E7B;
+  min-width:130px;
+  background:white;
+  border:2px solid #5FB74C;
+  padding:12px 22px;
+  border-radius:40px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:.25s;
 }
 
-#cyclist{font-size:55px;transition:.5s;}
+.side:hover{
+  background:#E63E7B;
+  color:white;
+  border-color:#E63E7B;
+}
+
+#cyclist{
+  font-size:55px;
+  transition:.5s;
+}
 
 button{
-padding:10px 22px;
-background:#E63E7B;
-color:white;
-border:none;
-cursor:pointer;
-margin:10px;
-border-radius:30px;
+  padding:10px 22px;
+  background:#E63E7B;
+  color:white;
+  border:none;
+  cursor:pointer;
+  margin:10px;
+  border-radius:30px;
 }
 
 .hidden{display:none;}
 
 #explanations{
-margin-top:20px;
-display:none;
-text-align:left;
-background:white;
-padding:20px;
-border-radius:15px;
+  margin-top:20px;
+  display:none;
+  text-align:left;
+  background:white;
+  padding:20px;
+  border-radius:15px;
 }
 
 /* ADVOCACY */
 .adv-item{
-background:white;
-padding:30px;
-margin:30px 0;
-border-radius:20px;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+  background:white;
+  padding:30px;
+  margin:30px 0;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
+
 .adv-gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
-margin-top:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+  margin-top:20px;
 }
+
 .adv-gallery img{
-width:100%;
-height:220px;
-object-fit:cover;
-border-radius:14px;
-}
-.adv-video iframe{
-width:100%;
-height:400px;
-border:none;
-border-radius:12px;
-}
-.adv-video-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
-margin-top:20px;
-}
-.adv-video-grid iframe{
-width:100%;
-height:220px;
-border:none;
-border-radius:12px;
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:14px;
 }
 
 /* ATELIER */
 .atelier-container{
-display:flex;
-gap:60px;
-flex-wrap:wrap;
+  display:flex;
+  gap:60px;
+  flex-wrap:wrap;
 }
+
 .atelier-img{
-width:100%;
-max-height:400px;
-object-fit:cover;
-border-radius:15px;
-margin:20px 0;
+  width:100%;
+  max-height:400px;
+  object-fit:cover;
+  border-radius:15px;
+  margin:20px 0;
 }
+
 .email-link{
-color:#E63E7B;
-font-weight:bold;
-text-decoration:none;
-font-size:18px;
+  color:#E63E7B;
+  font-weight:bold;
+  text-decoration:none;
+  font-size:18px;
 }
 
 /* FOOTER */
 footer{
-background:#2F8F3A;
-color:white;
-padding:60px 20px;
-text-align:center;
-margin-top:80px;
-}
-.partners{
-display:flex;
-justify-content:center;
-gap:40px;
-flex-wrap:wrap;
-margin-top:20px;
-}
-.partners img{
-height:65px;
-background:white;
-padding:10px 15px;
-border-radius:12px;
+  background:#2F8F3A;
+  color:white;
+  padding:60px 20px;
+  text-align:center;
+  margin-top:80px;
 }
 
-/* MOBILE */
+.partners{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.partners img{
+  height:65px;
+  background:white;
+  padding:10px 15px;
+  border-radius:12px;
+}
+
 @media(max-width:900px){
-.game-layout{flex-direction:column;}
-.logo-ciresarii{position:static;margin-bottom:20px;}
+  .game-layout{flex-direction:column;}
+  .logo-ciresarii{position:static;margin-bottom:20px;}
 }
 </style>
 </head>
@@ -229,9 +226,9 @@ border-radius:12px;
 <a href="#despre">Despre noi</a>
 </nav>
 
-<!-- GAME -->
 <section>
 <div class="game-layout">
+
 <div class="game-logo">
 <img src="logo-opreste.png">
 </div>
@@ -257,128 +254,64 @@ border-radius:12px;
 </div>
 </section>
 
-<!-- ADVOCACY -->
-<section id="advocacy">
-<h2>Advocacy</h2>
-
-<div class="adv-item"><h3>A. Cum a început campania Oprește Motorul</h3><p>În 2020, 300 de mame din cartierul Grivița-Domenii făceau chetă pentru a printa și distribui afișe cu mesajul „Oprește Motorul”.</p><div class="adv-gallery"><img src="advocacya1.jpeg"></div></div>
-
-<div class="adv-item"><h3>B. Întâlnire Primar Sector 6</h3><p>Primăria Sectorului 6 a fost prima instituție care a adoptat campania.</p><div class="adv-gallery"><img src="advocacyb1.jpeg"><img src="advocacyb2.jpeg"><img src="advocacyb3.jpeg"></div></div>
-
-<div class="adv-item"><h3>C. Campanie în școli</h3><p>Împreună cu Ecopolis, am ajuns în peste 50 de școli din București.</p><div class="adv-gallery"><img src="advocacyc1.jpeg"><img src="advocacyc2.jpeg"><img src="advocacyc3.jpeg"></div></div>
-
-<div class="adv-item"><h3>D. Cetățeni pentru Aer Curat</h3><p>Festival stradal comunitar și dezbatere publică pe tema poluării aerului.</p><div class="adv-gallery"><img src="advocacyd1.jpg"><img src="advocacyd2.jpeg"><img src="advocacyd3.jpg"></div></div>
-
-<div class="adv-item"><h3>E. Campanie TikTok #CocalAir</h3><p>Campanie cu situații reale de staționare cu motorul pornit.</p><div class="adv-gallery"><img src="advocacye1.jpeg"><img src="advocacye2.jpeg"><img src="advocacye3.jpeg"></div></div>
-
-<div class="adv-item"><h3>F. Campanie media</h3><p>Apariții media ale campaniei.</p><div class="adv-gallery"><img src="advocacyf1.jpeg"><img src="advocacyf2.jpeg"></div></div>
-
-<div class="adv-item"><h3>G. Campania Copiilor din Cartier</h3><div class="adv-video"><iframe src="https://www.youtube.com/embed/qGrkQ-K-CsQ" allowfullscreen></iframe></div></div>
-
-<div class="adv-item"><h3>H. Depunere la Senat</h3><div class="adv-gallery"><img src="advocacyh1.jpeg"><img src="advocacyh2.jpeg"></div></div>
-
-<div class="adv-item"><h3>I. Luări de cuvânt</h3><div class="adv-gallery"><img src="advocacyi1.jpeg"><img src="advocacyi2.jpeg"><img src="advocacyi3.jpeg"></div></div>
-
-<div class="adv-item"><h3>J. Campania Ce Spun Copiii</h3><div class="adv-video-grid"><iframe src="https://www.youtube.com/embed/erXLmehQDLY"></iframe><iframe src="https://www.youtube.com/embed/e1lwmraLAa4"></iframe><iframe src="https://www.youtube.com/embed/wTIWSl-vvOs"></iframe><iframe src="https://www.youtube.com/embed/Fvs_t--5iRw"></iframe></div></div>
-
-<div class="adv-item"><h3>K. Proiect HCL Sector 1</h3><div class="adv-gallery"><img src="advocacyk1.jpeg"><img src="advocacyk2.jpeg"><img src="advocacyk3.jpeg"></div></div>
-
-<div class="adv-item"><h3>L. Proiect HCL Sector 2</h3><div class="adv-gallery"><img src="advocacyl1.jpeg"></div></div>
-
-<div class="adv-item"><h3>M. Proiect CGMB</h3><p><strong>To be continued…</strong></p></div>
-
-</section>
-
-<!-- EDUCATIE -->
-<section id="educatie">
-<h2>Atelier educațional</h2>
-<div class="atelier-container">
-<div>
-<img src="workshop1.jpg" class="atelier-img">
-<img src="workshop3.jpeg" class="atelier-img">
-</div>
-<div>
-<img src="workshop2.jpg" class="atelier-img">
-<img src="workshop4.jpeg" class="atelier-img">
-<p>Pentru programări:</p>
-<a href="mailto:home@parintideciresari.ro" class="email-link">home@parintideciresari.ro</a>
-</div>
-</div>
-</section>
-
-<!-- DESPRE -->
-<section id="despre">
-<h2>Despre noi</h2>
-<div style="background:white;padding:40px;border-radius:20px;line-height:1.7;">
-<p>Asociația Părinți de Cireșari, înființată în iulie 2020, sprijină comunitatea prin proiecte de educație, sănătate și mediu.</p>
-</div>
-</section>
-
-<footer>
-<h3>Instituții partenere</h3>
-<div class="partners">
-<img src="logo-ps1.png">
-<img src="logo-pmb.png">
-</div>
-
-<h3 style="margin-top:40px;">Organizații partenere</h3>
-<div class="partners">
-<img src="logo-ecopolis.png">
-<img src="logo-platformademediu.png">
-</div>
-</footer>
-
 <script>
+const questionEl=document.getElementById("question");
+const resultEl=document.getElementById("result");
+const cyclistEl=document.getElementById("cyclist");
+const replayBtn=document.getElementById("replay");
+const verifyBtn=document.getElementById("verify");
+const explanationsEl=document.getElementById("explanations");
+
 const questions=[
-{q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.",a:true,e:"Este considerată principalul risc de mediu."},
+{q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.",a:true,e:"Poluarea aerului este considerată principalul risc de mediu pentru sănătatea publică."},
 {q:"Persoanele în vârstă sunt cele mai afectate de poluarea aerului.",a:true,e:"Vârstnicii și copiii sunt cei mai vulnerabili."},
-{q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",a:false,e:"Sunt printre cele mai ridicate."},
-{q:"În București se pierd aproape 2 ani de viață din cauza poluării.",a:true,e:"Studiile confirmă."},
-{q:"Particulele mai mari sunt cele mai periculoase.",a:false,e:"PM2.5 sunt cele mai periculoase."},
-{q:"Dimineața trebuie să încălzesc 5–10 minute motorul înainte de a porni.",a:false,e:"Sunt suficiente ~60 secunde."},
-{q:"Este frig afară, trebuie să las motorul pornit pentru a menține cald.",a:false,e:"Căldura se menține o perioadă."},
-{q:"Sunt protejat de poluarea aerului dacă rămân în interiorul mașinii.",a:false,e:"În interior poate fi mai rău."},
-{q:"Oprind și repornind motorul, îmi voi strica mașina.",a:false,e:"Ralantiul prelungit e mai dăunător."},
-{q:"Aproximativ 1 din 5 șoferi recunoaște că lasă motorul pornit la staționare.",a:true,e:"Circa 22% recunosc. Restul… probabil doar nu recunosc."}
+{q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",a:false,e:"În realitate sunt printre cele mai ridicate."},
+{q:"În București se pierd aproape 2 ani de viață din cauza poluării.",a:true,e:"Studiile arată o pierdere medie de aproape 2 ani."},
+{q:"Particulele mai mari sunt cele mai periculoase.",a:false,e:"PM2.5 sunt cele mai periculoase deoarece pătrund adânc în plămâni."},
+{q:"Dimineața trebuie să încălzesc 5–10 minute motorul înainte de a porni.",a:false,e:"Aproximativ 60 de secunde la ralanti sunt suficiente."},
+{q:"Este frig afară, trebuie să las motorul pornit pentru a menține cald.",a:false,e:"Temperatura se poate menține o perioadă și cu motorul oprit."},
+{q:"Sunt protejat de poluarea aerului dacă rămân în interiorul mașinii.",a:false,e:"Expunerea poate fi chiar mai mare în interiorul mașinii."},
+{q:"Oprind și repornind motorul, îmi voi strica mașina.",a:false,e:"Staționarea la ralanti nu este recomandată."},
+{q:"Aproximativ 1 din 5 șoferi recunoaște că lasă motorul pornit la staționare.",a:true,e:"Aproximativ 22% recunosc. Restul… probabil doar nu recunosc."}
 ];
 
 let current=0,score=0;
 
 function loadQuestion(){
-question.innerText=questions[current].q;
-result.innerText="";
+questionEl.innerText=questions[current].q;
+resultEl.innerText="";
 }
 
 function answer(choice){
-cyclist.style.transform=choice?"translateX(60px)":"translateX(-60px)";
-if(choice===questions[current].a){score++;result.innerText="Corect!";}
-else{result.innerText="Greșit!";}
+cyclistEl.style.transform=choice?"translateX(60px)":"translateX(-60px)";
+if(choice===questions[current].a){score++;resultEl.innerText="Corect!";}
+else{resultEl.innerText="Greșit!";}
 setTimeout(()=>{
-cyclist.style.transform="translateX(0)";
+cyclistEl.style.transform="translateX(0)";
 current++;
 if(current<questions.length) loadQuestion();
 else{
-question.innerText="Game Over! Scor: "+score+"/"+questions.length;
-replay.classList.remove("hidden");
-verify.classList.remove("hidden");
+questionEl.innerText="Game Over! Scor: "+score+"/"+questions.length;
+replayBtn.classList.remove("hidden");
+verifyBtn.classList.remove("hidden");
 }
 },600);
 }
 
 function restart(){
 current=0;score=0;
-replay.classList.add("hidden");
-verify.classList.add("hidden");
-explanations.style.display="none";
+replayBtn.classList.add("hidden");
+verifyBtn.classList.add("hidden");
+explanationsEl.style.display="none";
 loadQuestion();
 }
 
 function showAnswers(){
-explanations.innerHTML="<h3>Răspunsuri și explicații:</h3>";
+explanationsEl.innerHTML="<h3>Răspunsuri și explicații:</h3>";
 questions.forEach((q,i)=>{
-explanations.innerHTML+=`<p><strong>${i+1}.</strong> ${q.e}</p>`;
+explanationsEl.innerHTML+=`<p><strong>${i+1}.</strong> ${q.e}</p>`;
 });
-explanations.style.display="block";
+explanationsEl.style.display="block";
 }
 
 loadQuestion();
