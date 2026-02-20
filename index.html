@@ -1,47 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Oprește Motorul</title>
-/* ================= ADVOCACY ================= */
-
-.adv-item{
-background:white;
-padding:30px;
-margin:40px 0;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-text-align:left;
-}
-
-.adv-item h3{
-margin-top:0;
-color:#1F3D2B;
-}
-
-.adv-gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
-margin-top:20px;
-}
-
-.adv-gallery img{
-width:100%;
-height:240px;
-object-fit:cover; /* 🔥 NU MAI DISTORSIONEAZĂ */
-border-radius:14px;
-box-shadow:0 6px 18px rgba(0,0,0,0.15);
-}
-
-.adv-video{
-margin-top:20px;
-aspect-ratio:16/9;
-width:100%;
-border-radius:14px;
-}
 
 <style>
 body{
@@ -76,15 +38,8 @@ height:80px;
 object-fit:contain;
 }
 
-header h1{
-margin:0;
-font-size:36px;
-}
-
-header p{
-margin-top:8px;
-font-size:16px;
-}
+header h1{margin:0;font-size:36px;}
+header p{margin-top:8px;font-size:16px;}
 
 /* ================= NAV ================= */
 
@@ -104,9 +59,7 @@ font-weight:bold;
 transition:0.3s;
 }
 
-nav a:hover{
-color:#E63E7B;
-}
+nav a:hover{color:#E63E7B;}
 
 /* ================= SECTION ================= */
 
@@ -189,13 +142,9 @@ border-radius:30px;
 transition:0.3s;
 }
 
-button:hover{
-background:#C92D66;
-}
+button:hover{background:#C92D66;}
 
-.hidden{
-display:none;
-}
+.hidden{display:none;}
 
 #explanations{
 margin-top:20px;
@@ -205,6 +154,39 @@ background:white;
 padding:20px;
 border-radius:15px;
 box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* ================= ADVOCACY ================= */
+
+.adv-item{
+background:white;
+padding:30px;
+margin:40px 0;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+text-align:left;
+}
+
+.adv-gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
+margin-top:20px;
+}
+
+.adv-gallery img{
+width:100%;
+height:240px;
+object-fit:cover;
+border-radius:14px;
+box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+
+.adv-video{
+width:100%;
+aspect-ratio:16/9;
+border-radius:14px;
+margin-top:20px;
 }
 
 /* ================= WORKSHOP ================= */
@@ -262,9 +244,7 @@ text-decoration:none;
 font-size:18px;
 }
 
-.email-link:hover{
-text-decoration:underline;
-}
+.email-link:hover{text-decoration:underline;}
 
 /* ================= FOOTER ================= */
 
@@ -296,19 +276,9 @@ box-shadow:0 4px 12px rgba(0,0,0,0.15);
 /* ================= MOBILE ================= */
 
 @media(max-width:900px){
-
-.game-layout{
-flex-direction:column;
-}
-
-.atelier-container{
-flex-direction:column;
-}
-
-.logo-ciresarii{
-position:static;
-margin-bottom:20px;
-}
+.game-layout{flex-direction:column;}
+.atelier-container{flex-direction:column;}
+.logo-ciresarii{position:static;margin-bottom:20px;}
 }
 </style>
 </head>
@@ -331,58 +301,22 @@ margin-bottom:20px;
 <a href="#despre">Despre noi</a>
 </nav>
 
-<section>
-<div class="game-layout">
-
-<div class="game-logo">
-<img src="logo-opreste.png">
-</div>
-
-<div class="game-content">
-
-<h2>Cât de multe știi despre poluarea aerului?</h2>
-
-<div id="game">
-<p id="question"></p>
-
-<div id="road">
-<div class="side" onclick="answer(false)">Fals</div>
-<div id="cyclist">🚴</div>
-<div class="side" onclick="answer(true)">Adevărat</div>
-</div>
-
-<p id="result"></p>
-
-<button id="replay" class="hidden" onclick="restart()">Replay</button>
-<button id="verify" class="hidden" onclick="showAnswers()">Verifică răspunsurile</button>
-
-<div id="explanations"></div>
-</div>
-
-</div>
-</div>
-</section>
+<!-- ================= ADVOCACY ================= -->
 
 <section id="advocacy">
 <h2>Advocacy</h2>
 
-<!-- A -->
 <div class="adv-item">
 <h3>A. Cum a început campania Oprește Motorul</h3>
-<p>
-În 2020, 300 de mame din cartierul Grivița-Domenii făceau chetă pentru a printa și distribui afișe cu mesajul „Oprește Motorul”. A fost un efort comun și continuu, implicarea lor fiind prezentă și astăzi.
-</p>
+<p>În 2020, 300 de mame din cartierul Grivița-Domenii făceau chetă pentru a printa și distribui afișe cu mesajul „Oprește Motorul”. A fost un efort comun și continuu, implicarea lor fiind prezentă și azi.</p>
 <div class="adv-gallery">
 <img src="advocacya1.jpeg">
 </div>
 </div>
 
-<!-- B -->
 <div class="adv-item">
 <h3>B. Întâlnire Primar Sector 6</h3>
-<p>
-Primăria Sectorului 6 a fost prima instituție ce a adoptat campania, trecând în timp record proiectul de HCL prin Consiliul Local, toate unitățile de învățământ având în dreptul lor câte un panou metalic de informare.
-</p>
+<p>Primăria Sectorului 6 a fost prima instituție ce a adoptat campania...</p>
 <div class="adv-gallery">
 <img src="advocacyb1.jpeg">
 <img src="advocacyb2.jpeg">
@@ -390,12 +324,9 @@ Primăria Sectorului 6 a fost prima instituție ce a adoptat campania, trecând 
 </div>
 </div>
 
-<!-- C -->
 <div class="adv-item">
 <h3>C. Campanie în școli</h3>
-<p>
-Împreună cu Ecopolis, am ajuns în peste 50 de școli din București cu panouri informative privind poluarea aerului, ambasadorii campaniei fiind elevii.
-</p>
+<p>Împreună cu Ecopolis, am ajuns în peste 50 de școli din București...</p>
 <div class="adv-gallery">
 <img src="advocacyc1.jpeg">
 <img src="advocacyc2.jpeg">
@@ -403,316 +334,4 @@ Primăria Sectorului 6 a fost prima instituție ce a adoptat campania, trecând 
 </div>
 </div>
 
-<!-- D -->
-<div class="adv-item">
-<h3>D. Cetățeni pentru Aer Curat</h3>
-<p>
-În cadrul proiectului Cetățeni pentru Aer Curat implementat de Ecopolis, Părinți de Cireșari a organizat un festival stradal comunitar dedicat poluării aerului și o dezbatere publică cu autorități și societatea civilă.
-</p>
-<div class="adv-gallery">
-<img src="advocacyd1.jpg">
-<img src="advocacyd2.jpeg">
-<img src="advocacyd3.jpg">
-</div>
-</div>
-
-<!-- E -->
-<div class="adv-item">
-<h3>E. Campanie TikTok #CocalAir</h3>
-<p>
-O campanie cu situații reale de staționare cu motorul pornit, folosind imagini generate cu AI pe baza comentariilor primite pe TikTok.
-</p>
-<div class="adv-gallery">
-<img src="advocacye1.jpeg">
-<img src="advocacye2.jpeg">
-<img src="advocacye3.jpeg">
-</div>
-</div>
-
-<!-- F -->
-<div class="adv-item">
-<h3>F. Campanie media</h3>
-<div class="adv-gallery">
-<img src="advocacyf1.jpeg">
-<img src="advocacyf2.jpeg">
-</div>
-</div>
-
-<!-- G -->
-<div class="adv-item">
-<h3>G. Campania Copiilor din Cartier</h3>
-<p>
-Mai mulți copii din cartier au construit un proiect propriu „Oprește Motorul”, realizând integral materialul video.
-</p>
-<iframe class="adv-video"
-src="https://www.youtube.com/embed/qGrkQ-K-CsQ"
-allowfullscreen></iframe>
-</div>
-
-<!-- H -->
-<div class="adv-item">
-<h3>H. Depunere la Senat a proiectului de modificare a Codului Rutier</h3>
-<p>
-Părinți de Cireșari și Ecopolis, prin senatorul independent Dragoș Popescu, au depus proiectul de modificare a Codului Rutier privind interzicerea staționării cu motorul pornit.
-</p>
-<div class="adv-gallery">
-<img src="advocacyh1.jpeg">
-<img src="advocacyh2.jpeg">
-</div>
-</div>
-
-<!-- I -->
-<div class="adv-item">
-<h3>I. Luări de cuvânt în ședințe parlamentare</h3>
-<p>
-Am participat constant la ședințele comisiei de mediu pentru susținerea proiectului Oprește Motorul.
-</p>
-<div class="adv-gallery">
-<img src="advocacyi1.jpeg">
-<img src="advocacyi2.jpeg">
-<img src="advocacyi3.jpeg">
-</div>
-</div>
-
-<!-- J -->
-<div class="adv-item">
-<h3>J. Campania Ce Spun Copiii</h3>
-<p>O serie jucăușă despre percepția copiilor privind staționarea cu motorul pornit.</p>
-
-<iframe class="adv-video" src="https://www.youtube.com/embed/erXLmehQDLY" allowfullscreen></iframe>
-<iframe class="adv-video" src="https://www.youtube.com/embed/e1lwmraLAa4" allowfullscreen></iframe>
-<iframe class="adv-video" src="https://www.youtube.com/embed/wTIWSl-vvOs" allowfullscreen></iframe>
-<iframe class="adv-video" src="https://www.youtube.com/embed/Fvs_t--5iRw" allowfullscreen></iframe>
-</div>
-
-<!-- K -->
-<div class="adv-item">
-<h3>K. Proiect de HCL la Sectorul 1</h3>
-<p>
-Primăria Sectorului 1 a adoptat campania, instalând panouri informative la toate unitățile de învățământ.
-</p>
-<div class="adv-gallery">
-<img src="advocacyk1.jpeg">
-<img src="advocacyk2.jpeg">
-<img src="advocacyk3.jpeg">
-</div>
-</div>
-
-<!-- L -->
-<div class="adv-item">
-<h3>L. Proiect de HCL la Sectorul 2</h3>
-<p>
-Consilierul Local Andrei Tăndraș a preluat inițiativa Oprește Motorul, iar proiectul a fost adoptat cu majoritate.
-</p>
-<div class="adv-gallery">
-<img src="advocacyl1.jpeg">
-</div>
-</div>
-
-<!-- M -->
-<div class="adv-item">
-<h3>M. Proiect CGMB – în lucru</h3>
-<p>
-În prezent există o formă finală de Proiect de Hotărâre a Consiliului General, realizată împreună cu Bogdan Sabo și Direcția de Mediu PMB.
-<br><strong>To be continued…</strong>
-</p>
-</div>
-
 </section>
-
-<section id="educatie">
-<h2>Atelier educațional</h2>
-
-<div class="atelier-container">
-
-<div class="atelier-col-left">
-
-<h1 class="atelier-title">OPREȘTE MOTORUL</h1>
-<h2 class="atelier-sub">workshop</h2>
-
-<p class="atelier-text">
-Urmărim un material video despre dezvoltarea urbană în armonie cu natura și discutăm despre impactul asupra comunității.
-</p>
-
-<img src="workshop1.jpg" class="atelier-img">
-<img src="workshop3.jpeg" class="atelier-img">
-
-</div>
-
-<div class="atelier-col-right">
-
-<div class="atelier-questions">
-CE ESTE POLUAREA?<br>
-CUM AFECTEAZĂ MEDIUL?<br>
-CUM NE POATE AFECTA SĂNĂTATEA?
-</div>
-
-<img src="workshop2.jpg" class="atelier-img">
-<img src="workshop4.jpeg" class="atelier-img">
-
-<p class="atelier-text">
-Pentru programări și informații suplimentare ne puteți scrie la:
-<br><br>
-<a href="mailto:home@parintideciresari.ro" class="email-link">
-home@parintideciresari.ro
-</a>
-</p>
-
-</div>
-
-</div>
-</section>
-
-<section id="despre">
-<h2>Despre noi</h2>
-
-<div style="background:white; padding:40px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.08); text-align:left; line-height:1.7;">
-
-<p>
-Asociația Părinți de Cireșari, înființată în iulie 2020, are ca misiune sprijinirea comunității locale prin proiecte dedicate educației, sănătății și protecției mediului. Activitatea sa promovează implicarea civică și dezvoltarea durabilă, iar colaborările cu organizații non-guvernamentale și instituții publice contribuie la creșterea impactului inițiativelor derulate.
-</p>
-
-<p>
-Campania <strong>Oprește Motorul</strong> este prima inițiativă de mediu concepută și implementată de asociație în anul 2020. Proiectul a debutat prin distribuirea în cartier a unor afișe A3 plastifiate, realizate prin contribuția financiară a comunității. Campania continuă și astăzi prin colaborări puternice cu instituții publice și organizații de mediu, având ca obiectiv final modificarea Codului Rutier sau adoptarea unei legi dedicate.
-</p>
-
-</div>
-
-</section>
-
-
-<footer>
-<h3>Instituții partenere</h3>
-<div class="partners">
-<img src="logo-ps1.png">
-<img src="logo-pmb.png">
-</div>
-
-<h3 style="margin-top:40px;">Organizații partenere</h3>
-<div class="partners">
-<img src="logo-ecopolis.png">
-<img src="logo-platformademediu.png">
-</div>
-</footer>
-
-<script>
-const questions=[
-{
-q:"Poluarea aerului este cel mai mare risc de mediu pentru sănătatea publică din România.",
-a:true,
-e:"Este considerată principalul risc de mediu pentru sănătate."
-},
-{
-q:"Persoanele în vârstă sunt cele mai afectate de poluarea aerului.",
-a:true,
-e:"Vârstnicii și copiii sunt cei mai vulnerabili."
-},
-{
-q:"Costurile de sănătate din București sunt printre cele mai scăzute din Europa.",
-a:false,
-e:"Sunt printre cele mai ridicate din Europa."
-},
-{
-q:"În București se pierd aproape 2 ani de viață din cauza poluării.",
-a:true,
-e:"Studiile arată o pierdere medie de aproape 2 ani."
-},
-{
-q:"Particulele mai mari sunt cele mai periculoase.",
-a:false,
-e:"PM2.5 sunt cele mai periculoase deoarece pătrund adânc în plămâni."
-},
-{
-q:"Dimineața trebuie să încălzesc 5–10 minute motorul înainte de a porni în trafic, mai ales iarna.",
-a:false,
-e:"Testele arată că sunt suficiente aproximativ 60 de secunde la ralanti pentru a circula uleiul de motor înainte de a putea conduce în zilele reci."
-},
-{
-q:"Este frig afară, trebuie să las motorul pornit pentru a menține cald în mașină.",
-a:false,
-e:"Dacă oprești motorul când staționezi și menții contactul pus, încălzirea poate menține o temperatură decentă până la 15 minute."
-},
-{
-q:"Sunt protejat de poluarea aerului dacă rămân în interiorul mașinii.",
-a:false,
-e:"Potrivit unor studii, expunerea la poluanți auto este adesea mai mare în interiorul mașinii decât la marginea drumului."
-},
-{
-q:"Oprind și repornind motorul, îmi voi strica mașina.",
-a:false,
-e:"Staționarea cu motorul pornit la ralanti poate afecta sistemele de filtrare și regenerare. În anumite condiții, procesul de regenerare la ralanti poate duce la probleme tehnice."
-},
-{
-q:"Aproximativ 1 din 5 șoferi recunoaște că lasă motorul pornit atunci când staționează.",
-a:true,
-e:"Studiile arată că aproximativ 22% dintre șoferi admit că lasă motorul pornit atunci când mașina este oprită. Restul… probabil doar nu recunosc. Indiferent de procent, staționarea cu motorul pornit contribuie la poluare și consum inutil de combustibil."
-}
-];
-
-
-let current=0;
-let score=0;
-let userAnswers=[];
-
-function loadQuestion(){
-document.getElementById("question").innerText=questions[current].q;
-document.getElementById("result").innerText="";
-}
-
-function answer(choice){
-let cyclist=document.getElementById("cyclist");
-
-cyclist.style.transform=choice?"translateX(60px)":"translateX(-60px)";
-
-userAnswers.push(choice);
-
-if(choice===questions[current].a){
-score++;
-document.getElementById("result").innerText="Corect!";
-}else{
-document.getElementById("result").innerText="Greșit!";
-}
-
-setTimeout(()=>{
-cyclist.style.transform="translateX(0px)";
-current++;
-
-if(current<questions.length){
-loadQuestion();
-}else{
-document.getElementById("question").innerText="Game Over! Scor: "+score+"/"+questions.length;
-document.getElementById("replay").classList.remove("hidden");
-document.getElementById("verify").classList.remove("hidden");
-}
-},600);
-}
-
-function restart(){
-current=0;
-score=0;
-userAnswers=[];
-document.getElementById("replay").classList.add("hidden");
-document.getElementById("verify").classList.add("hidden");
-document.getElementById("explanations").style.display="none";
-loadQuestion();
-}
-
-function showAnswers(){
-let container=document.getElementById("explanations");
-container.innerHTML="<h3>Răspunsuri corecte și explicații:</h3>";
-
-questions.forEach((item,index)=>{
-container.innerHTML+=
-"<p><strong>"+(index+1)+".</strong> "+item.q+
-"<br><em>"+item.e+"</em></p><hr>";
-});
-
-container.style.display="block";
-}
-
-loadQuestion();
-</script>
-
-</body>
-</html>
-
